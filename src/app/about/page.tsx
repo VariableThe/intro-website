@@ -7,14 +7,19 @@ import { ArrowLeft } from "lucide-react";
 export default function About() {
     const skills = [
         { name: "Python", level: "95%" },
-        { name: "Java / C++", level: "90%" },
-        { name: "React / JS", level: "85%" },
+        { name: "Swift / iOS", level: "90%" },
+        { name: "Java / C++ / C", level: "90%" },
+        { name: "React / TypeScript", level: "88%" },
+        { name: "AI / ML", level: "85%" },
+        { name: "Docker / K8s", level: "80%" },
         { name: "Spring Boot", level: "80%" },
         { name: "Unity / 3D", level: "75%" },
+        { name: "Blockchain", level: "70%" },
     ];
 
     const timeline = [
-        { year: "2025", role: "DRDO Intern", desc: "Developed a centralized requisition management platform for secure assets." },
+        { year: "2026", role: "Published Raycast Extension", desc: "Launched 'Omelette' - OpenRouter extension for Raycast with 2+ stars. Building TrackIt iOS app for personal finance." },
+        { year: "2025", role: "DRDO Intern", desc: "Developed a centralized requisition management platform for secure assets. Completed ML/DL projects on Network Intrusion Detection." },
         { year: "2024", role: "Design Head & Committee Member", desc: "Managed 100+ designers at Finova & MIST, spearheaded CTFs, and implemented cryptographic ciphers (Vigenère/Autokey)." },
         { year: "2023", role: "B.Tech @ MIT", desc: "Computer Science & FinTech. CGPA 7.2. SAT 1440. Physics 99.98th percentile." },
         { year: "2021", role: "3D Modeler & Prop Maker", desc: "Passionate about 3D modeling (Blender, CAD) and crafting physical props using woodworking & origami." },
@@ -86,7 +91,7 @@ export default function About() {
                         </div>
                         {/* Status tag */}
                         <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground font-black text-2xl px-6 py-2 uppercase p5-skew p5-shadow rotate-[-5deg]">
-                            LVL 67
+                            38 REPOS
                         </div>
                     </motion.div>
 

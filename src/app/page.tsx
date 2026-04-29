@@ -71,6 +71,34 @@ export default function Home() {
               Web Developer <span className="text-primary mx-2">/</span> Cybersecurity Enthusiast <span className="text-primary mx-2">/</span> Game Developer
             </p>
           </div>
+
+          {/* Intro paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mt-6 text-center max-w-xl text-foreground/80 font-mono text-sm md:text-base leading-relaxed"
+          >
+            Building tools that bridge creativity and code. From iOS apps to AI/ML models,
+            I turn ideas into reality. Currently exploring the intersection of security and software.
+          </motion.p>
+
+          {/* Location & Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="flex items-center gap-4 mt-4"
+          >
+            <span className="flex items-center gap-2 text-sm font-mono text-foreground/70">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Open to opportunities
+            </span>
+            <span className="text-foreground/30">|</span>
+            <span className="text-sm font-mono text-foreground/70">
+              📍 Bangalore, India
+            </span>
+          </motion.div>
         </motion.div>
 
         <motion.div

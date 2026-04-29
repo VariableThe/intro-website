@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Loader2, ExternalLink } from "lucide-react";
+import { ArrowLeft, Loader2, ExternalLink, Star, GitFork } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface Project {
@@ -12,6 +12,8 @@ interface Project {
     tags: string[];
     color: string;
     url: string;
+    stars: number;
+    forks: number;
 }
 
 const COLORS = [
@@ -59,6 +61,8 @@ export default function Projects() {
                             tags: tags.length > 0 ? tags : ["Code"],
                             color: COLORS[index % COLORS.length],
                             url: repo.html_url,
+                            stars: repo.stargazers_count || 0,
+                            forks: repo.forks_count || 0,
                         };
                     });
 
@@ -145,15 +149,31 @@ export default function Projects() {
                                         </p>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 mt-auto">
-                                        {project.tags.map((tag, idx) => (
-                                            <span
-                                                key={`${tag}-${idx}`}
-                                                className="text-xs font-bold uppercase tracking-wider px-2 py-1 border-2 border-foreground p5-skew bg-foreground/5 shadow-sm whitespace-nowrap"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
+                                    <div className="flex flex-wrap gap-2 mt-auto items-center justify-between">
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tags.map((tag, idx) => (
+                                                <span
+                                                    key={`${tag}-${idx}`}
+                                                    className="text-xs font-bold uppercase tracking-wider px-2 py-1 border-2 border-foreground p5-skew bg-foreground/5 shadow-sm whitespace-nowrap"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="flex items-center gap-3 text-xs font-mono opacity-60">
+                                            {project.stars > 0 && (
+                                                <span className="flex items-center gap-1">
+                                                    <Star size={14} className="fill-amber-400 text-amber-400" />
+                                                    {project.stars}
+                                                </span>
+                                            )}
+                                            {project.forks > 0 && (
+                                                <span className="flex items-center gap-1">
+                                                    <GitFork size={14} />
+                                                    {project.forks}
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </motion.a>
