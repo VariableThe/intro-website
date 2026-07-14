@@ -2,168 +2,212 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Star, GitFork } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function About() {
+    const [repoCount, setRepoCount] = useState<number | string>("52");
+    const [starCount, setStarCount] = useState<number | string>("18");
+    const [forkCount, setForkCount] = useState<number | string>("—");
+    const [followers, setFollowers] = useState<number | string>("—");
+    const yearsCoding = new Date().getFullYear() - 2015;
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const userRes = await fetch("https://api.github.com/users/VariableThe");
+                if (userRes.ok) {
+                    const userData = await userRes.json();
+                    if (userData.public_repos) setRepoCount(userData.public_repos);
+                    if (userData.followers) setFollowers(userData.followers);
+                }
+                const reposRes = await fetch("https://api.github.com/users/VariableThe/repos?per_page=100");
+                if (reposRes.ok) {
+                    const reposData = await reposRes.json();
+                    const totalStars = reposData.reduce((acc: number, r: any) => acc + (r.stargazers_count || 0), 0);
+                    const totalForks = reposData.reduce((acc: number, r: any) => acc + (r.forks_count || 0), 0);
+                    if (totalStars > 0) setStarCount(totalStars);
+                    if (totalForks >= 0) setForkCount(totalForks);
+                }
+            } catch (err) {
+                // silently fail — fallback values remain
+            }
+        };
+        fetchStats();
+    }, []);
+
     const skills = [
-        { name: "Python", level: "95%" },
-        { name: "Swift / iOS", level: "90%" },
-        { name: "Java / C++ / C", level: "90%" },
-        { name: "React / TypeScript", level: "88%" },
-        { name: "AI / ML", level: "85%" },
-        { name: "Docker / K8s", level: "80%" },
-        { name: "Spring Boot", level: "80%" },
-        { name: "Unity / 3D", level: "75%" },
-        { name: "Blockchain", level: "70%" },
+        { name: "Python", level: 95 },
+        { name: "TypeScript / React", level: 92 },
+        { name: "Swift / iOS & macOS", level: 88 },
+        { name: "Java / C++ / C", level: 85 },
+        { name: "Docker / Linux", level: 82 },
+        { name: "Spring Boot", level: 78 },
+        { name: "Unity / 3D", level: 72 },
+        { name: "Blockchain / Crypto", level: 70 },
     ];
 
     const timeline = [
-        { year: "2026", role: "Published Raycast Extension", desc: "Launched 'Omelette' - OpenRouter extension for Raycast with 2+ stars. Building TrackIt iOS app for personal finance." },
-        { year: "2025", role: "DRDO Intern", desc: "Developed a centralized requisition management platform for secure assets. Completed ML/DL projects on Network Intrusion Detection." },
-        { year: "2024", role: "Design Head & Committee Member", desc: "Managed 100+ designers at Finova & MIST, spearheaded CTFs, and implemented cryptographic ciphers (Vigenère/Autokey)." },
-        { year: "2023", role: "B.Tech @ MIT", desc: "Computer Science & FinTech. CGPA 7.2. SAT 1440. Physics 99.98th percentile." },
-        { year: "2021", role: "3D Modeler & Prop Maker", desc: "Passionate about 3D modeling (Blender, CAD) and crafting physical props using woodworking & origami." },
-        { year: "2015", role: "Tech & Gaming YouTube", desc: "Created and managed a channel uploading tech reviews and gaming insights." },
+        {
+            year: "2026",
+            role: "Open-source projects",
+            desc: "Shipped PaperCache — a reactive markdown notebook with live calculations and inline AI (8 stars). Built Omelette, an OpenRouter extension for Raycast and Vicinae. Published Vinyl, a macOS menu bar lyrics app in Swift."
+        },
+        {
+            year: "2025",
+            role: "DRDO & IIT Indore internships",
+            desc: "Built a requisition management platform at DRDO. Researched EVM and smart contracts at IIT Indore. Built a PipeWire audio splitter for multi-monitor routing on Linux. Served as General Secretary for PRISM."
+        },
+        {
+            year: "2024",
+            role: "Design Head & CTF organiser",
+            desc: "Managed 100+ designers across Finova and MIST. Spearheaded KernelCTF, AuroraCTF, and IndomitusCTF. Built Python blockchain P2P networks and ML-based network intrusion detection."
+        },
+        {
+            year: "2023",
+            role: "Started B.Tech at MIT",
+            desc: "Computer Science & FinTech. SAT 1440."
+        },
+        {
+            year: "2021",
+            role: "3D modelling & prop making",
+            desc: "Blender, CAD, woodworking, origami. Mostly just making things."
+        },
+        {
+            year: "2015",
+            role: "YouTube — tech & gaming",
+            desc: "Ran a channel doing tech reviews and gaming content."
+        },
     ];
 
     return (
-        <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-24 overflow-x-hidden pt-24">
-            {/* Da Vinci sketch background overlay */}
-            <div
-                className="fixed inset-0 pointer-events-none opacity-[0.05] dark:opacity-10"
-                style={{
-                    backgroundImage: `linear-gradient(90deg, transparent 49px, var(--color-foreground) 50px, transparent 51px)`,
-                    backgroundSize: '100px 100px'
-                }}
-            />
-            <div
-                className="fixed inset-0 pointer-events-none opacity-[0.05] dark:opacity-10"
-                style={{
-                    backgroundImage: `linear-gradient(0deg, transparent 49px, var(--color-foreground) 50px, transparent 51px)`,
-                    backgroundSize: '100px 100px'
-                }}
-            />
+        <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-20 pt-16 md:pt-20">
 
-            <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-                {/* Left Column - Graphic & Intro */}
-                <div className="flex-1">
-                    <div className="flex items-center gap-6 mb-12">
-                        <Link href="/">
-                            <motion.div
-                                whileHover={{ scale: 1.1, x: -5 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-4 border-2 border-foreground rounded-full bg-background hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-colors cursor-pointer"
-                            >
-                                <ArrowLeft size={32} />
-                            </motion.div>
-                        </Link>
+            <div className="max-w-5xl mx-auto">
+
+                {/* Back */}
+                <Link href="/" className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
+                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+                    <span>Home</span>
+                </Link>
+
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+
+                    {/* Left column */}
+                    <div className="lg:w-80 shrink-0">
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">
+                                Aditya<br />
+                                <span className="text-primary">Sharma</span>
+                            </h1>
+                            <p className="text-foreground/60 text-base leading-relaxed mt-4 mb-8">
+                                Nothing special — just building what I feel like. CS & FinTech student at MIT. Into open source, native apps, security, and making physical things.
+                            </p>
+
+                            {/* Stats grid */}
+                            <div className="grid grid-cols-2 gap-x-8 gap-y-5 mb-10">
+                                <div>
+                                    <div className="text-3xl font-black tabular-nums">{repoCount}</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">public repos</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black flex items-center gap-1.5">
+                                        {starCount}
+                                        <Star size={20} className="text-amber-400 fill-amber-400" />
+                                    </div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">GitHub stars</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black tabular-nums">{forkCount}</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">forks</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black tabular-nums">{followers}</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">followers</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black">{yearsCoding}+</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">years coding</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black">3</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">CTFs organised</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black">2</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">internships</div>
+                                </div>
+                                <div>
+                                    <div className="text-3xl font-black">7.16</div>
+                                    <div className="text-xs text-foreground/45 font-mono uppercase tracking-wider mt-1">CGPA @ MIT</div>
+                                </div>
+                            </div>
+
+                            {/* Skills */}
+                            <div>
+                                <h2 className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-4">Skills</h2>
+                                <div className="flex flex-col gap-3">
+                                    {skills.map((skill, i) => (
+                                        <div key={skill.name}>
+                                            <div className="flex justify-between text-base mb-1.5">
+                                                <span className="text-foreground/80">{skill.name}</span>
+                                                <span className="text-foreground/30 font-mono text-sm">{skill.level}%</span>
+                                            </div>
+                                            <div className="h-1 w-full bg-foreground/8 rounded-full overflow-hidden">
+                                                <motion.div
+                                                    initial={{ width: 0 }}
+                                                    animate={{ width: `${skill.level}%` }}
+                                                    transition={{ delay: 0.3 + i * 0.05, duration: 0.8, ease: "easeOut" }}
+                                                    className="h-full bg-primary rounded-full"
+                                                />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="relative w-full aspect-square max-w-md mx-auto lg:mx-0 mb-12"
-                    >
-                        {/* Persona 5 Portrait framing */}
-                        <div className="absolute inset-0 bg-primary p5-skew p5-shadow translate-x-4 translate-y-4" />
-                        <div className="absolute inset-0 bg-foreground p5-skew p5-shadow translate-x-1 translate-y-1" />
-                        <div className="absolute inset-0 bg-background border-4 border-foreground overflow-hidden sketch-border">
-                            {/* Abstract Portrait Representation */}
-                            <svg viewBox="0 0 100 100" className="w-full h-full text-foreground/80 stroke-current fill-none">
-                                {/* Vitruvian geometric abstraction */}
-                                <circle cx="50" cy="50" r="45" strokeWidth="0.5" />
-                                <rect x="15" y="15" width="70" height="70" strokeWidth="0.5" />
-                                <path d="M 50 5 L 95 95 L 5 95 Z" strokeWidth="0.5" />
-                                <circle cx="50" cy="35" r="10" strokeWidth="2" />
-                                <path d="M 40 55 C 40 55, 50 65, 60 55" strokeWidth="2" />
-                                <path d="M 20 85 C 30 70, 70 70, 80 85" strokeWidth="2" />
-                                {/* Scribble texture lines */}
-                                {[...Array(30)].map((_, i) => (
-                                    <line
-                                        key={i}
-                                        x1={0} y1={i * 3.5}
-                                        x2={100} y2={i * 3.5 + 10}
-                                        strokeWidth="0.2"
-                                        className="opacity-20"
-                                    />
+                    {/* Right column — Timeline */}
+                    <div className="flex-1">
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.15, duration: 0.5 }}
+                        >
+                            <h2 className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-8">Timeline</h2>
+
+                            <div className="flex flex-col gap-0">
+                                {timeline.map((item, i) => (
+                                    <motion.div
+                                        key={item.year}
+                                        initial={{ opacity: 0, x: -8 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.2 + i * 0.07, duration: 0.4 }}
+                                        className="flex gap-6 group"
+                                    >
+                                        {/* Year + line */}
+                                        <div className="flex flex-col items-center">
+                                            <div className="w-px h-3 bg-border" />
+                                            <div className="w-2 h-2 rounded-full bg-foreground/20 group-hover:bg-primary transition-colors shrink-0" />
+                                            <div className="w-px flex-1 bg-border" />
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="pb-8 flex-1">
+                                            <span className="font-mono text-sm text-foreground/40">{item.year}</span>
+                                            <h3 className="font-semibold text-foreground text-lg mt-0.5 mb-1.5">{item.role}</h3>
+                                            <p className="text-base text-foreground/60 leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </motion.div>
                                 ))}
-                            </svg>
-                        </div>
-                        {/* Status tag */}
-                        <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground font-black text-2xl px-6 py-2 uppercase p5-skew p5-shadow rotate-[-5deg]">
-                            38 REPOS
-                        </div>
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-6xl md:text-8xl font-black uppercase tracking-tighter p5-skew"
-                    >
-                        About <br /> <span className="bg-foreground text-background px-4 inline-block mt-2 sketch-border">Me</span>
-                    </motion.h1>
-                </div>
-
-                {/* Right Column - Skills & Timeline */}
-                <div className="flex-1 flex flex-col justify-center gap-16 mt-12 lg:mt-32">
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <h2 className="text-3xl font-black uppercase mb-8 border-b-4 border-foreground pb-2 inline-block">
-                            Skill Matrix
-                        </h2>
-                        <div className="flex flex-col gap-6 font-mono">
-                            {skills.map((skill, i) => (
-                                <div key={skill.name} className="relative">
-                                    <div className="flex justify-between mb-2 font-bold uppercase tracking-widest text-sm">
-                                        <span>{skill.name}</span>
-                                        <span>{skill.level}</span>
-                                    </div>
-                                    <div className="h-4 w-full bg-foreground/10 sketch-border overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: skill.level }}
-                                            transition={{ delay: 0.5 + (i * 0.1), duration: 1, ease: "easeOut" }}
-                                            className="h-full bg-primary p5-skew origin-left"
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                    >
-                        <h2 className="text-3xl font-black uppercase mb-8 border-b-4 border-foreground pb-2 inline-block">
-                            Chronicle
-                        </h2>
-                        <div className="flex flex-col gap-8 relative">
-                            <div className="absolute left-4 top-2 bottom-0 w-1 bg-foreground/30" />
-                            {timeline.map((item, i) => (
-                                <div key={item.year} className="relative pl-12">
-                                    <div className="absolute left-2.5 top-2 w-4 h-4 rounded-full bg-foreground border-2 border-background z-10" />
-                                    <div className="absolute left-[-2px] xl:left-[-120px] top-1 text-primary font-black text-xl md:text-2xl p5-skew w-24 text-right hidden xl:block">
-                                        {item.year}
-                                    </div>
-                                    <div className="bg-background border-2 border-foreground p-6 sketch-border relative group hover:-translate-y-1 transition-transform">
-                                        <div className="text-primary font-black text-xl mb-1 xl:hidden">{item.year}</div>
-                                        <h3 className="font-bold uppercase text-lg mb-2">{item.role}</h3>
-                                        <p className="font-mono opacity-80 text-sm">
-                                            {item.desc}
-                                        </p>
-                                        <div className="absolute -inset-2 border-2 border-primary opacity-0 group-hover:opacity-100 p5-skew pointer-events-none transition-opacity" />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
+                            </div>
+                        </motion.div>
+                    </div>
 
                 </div>
             </div>

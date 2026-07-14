@@ -12,8 +12,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/ModeToggle";
 
 export const metadata: Metadata = {
-  title: "Aditya | Portfolio",
-  description: "Da Vinci x Persona 5 Style Portfolio",
+  title: "Aditya Sharma",
+  description: "Building open-source tools, native apps, and whatever else feels interesting.",
 };
 
 export default function RootLayout({
