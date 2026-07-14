@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Star, GitFork } from "lucide-react";
+import { ArrowLeft, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function About() {
@@ -36,15 +36,23 @@ export default function About() {
         fetchStats();
     }, []);
 
-    const skills = [
-        { name: "Python", level: 95 },
-        { name: "TypeScript / React", level: 92 },
-        { name: "Swift / iOS & macOS", level: 88 },
-        { name: "Java / C++ / C", level: 85 },
-        { name: "Docker / Linux", level: 82 },
-        { name: "Spring Boot", level: 78 },
-        { name: "Unity / 3D", level: 72 },
-        { name: "Blockchain / Crypto", level: 70 },
+    const skillGroups = [
+        {
+            label: "Languages",
+            skills: ["Python", "TypeScript", "Swift", "Java", "C", "C++"],
+        },
+        {
+            label: "Web & Frameworks",
+            skills: ["Next.js", "React", "Spring Boot", "Tailwind"],
+        },
+        {
+            label: "Native & Systems",
+            skills: ["SwiftUI", "AppKit", "Linux", "PipeWire", "Docker"],
+        },
+        {
+            label: "Other",
+            skills: ["Blender", "Unity", "Blockchain", "CTF / Security"],
+        },
     ];
 
     const timeline = [
@@ -149,21 +157,22 @@ export default function About() {
 
                             {/* Skills */}
                             <div>
-                                <h2 className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-4">Skills</h2>
-                                <div className="flex flex-col gap-3">
-                                    {skills.map((skill, i) => (
-                                        <div key={skill.name}>
-                                            <div className="flex justify-between text-base mb-1.5">
-                                                <span className="text-foreground/80">{skill.name}</span>
-                                                <span className="text-foreground/30 font-mono text-sm">{skill.level}%</span>
-                                            </div>
-                                            <div className="h-1 w-full bg-foreground/8 rounded-full overflow-hidden">
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    animate={{ width: `${skill.level}%` }}
-                                                    transition={{ delay: 0.3 + i * 0.05, duration: 0.8, ease: "easeOut" }}
-                                                    className="h-full bg-primary rounded-full"
-                                                />
+                                <h2 className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-5">Skills</h2>
+                                <div className="flex flex-col gap-4">
+                                    {skillGroups.map(group => (
+                                        <div key={group.label}>
+                                            <span className="text-[11px] font-mono text-foreground/30 uppercase tracking-widest block mb-2">
+                                                {group.label}
+                                            </span>
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {group.skills.map(skill => (
+                                                    <span
+                                                        key={skill}
+                                                        className="text-sm text-foreground/70 bg-foreground/[0.06] px-2.5 py-1 font-mono"
+                                                    >
+                                                        {skill}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
                                     ))}
