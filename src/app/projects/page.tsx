@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Star, GitFork, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { GithubActivityGrid } from "@/components/GithubActivityGrid";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -293,6 +294,9 @@ export default function Projects() {
                         </a>
                     </p>
                 </motion.div>
+
+                {/* GitHub Activity Grid */}
+                <GithubActivityGrid username="VariableThe" />
 
                 {/* ─── Curated categories ─── */}
                 <div className="space-y-16">
