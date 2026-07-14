@@ -51,13 +51,13 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    // Rewrite root '/' to '/<section>'
+    const rewriteUrl = request.nextUrl.clone();
     if (pathname === "/") {
-      return NextResponse.rewrite(new URL(`/${section}`, request.url));
+      rewriteUrl.pathname = `/${section}`;
+    } else {
+      rewriteUrl.pathname = `/${section}${pathname}`;
     }
-
-    // Rewrite any subpath (e.g. '/building-papercache' on blog.vrbl.win -> '/blog/building-papercache')
-    return NextResponse.rewrite(new URL(`/${section}${pathname}`, request.url));
+    return NextResponse.rewrite(rewriteUrl);
   }
 
   return NextResponse.next();
