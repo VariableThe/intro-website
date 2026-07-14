@@ -132,7 +132,7 @@ function ProjectCard({
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05, duration: 0.35 }}
+            transition={{ delay: index * 0.02, duration: 0.2 }}
             className="group flex flex-col border border-border hover:border-foreground/25 p-5 transition-colors card-lift"
         >
             {/* Accent line */}
@@ -181,7 +181,7 @@ function SmallRepoRow({ repo, index }: { repo: Repo; index: number }) {
             rel="noopener noreferrer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: Math.min(index * 0.015, 0.3) }}
+            transition={{ delay: Math.min(index * 0.006, 0.12), duration: 0.15 }}
             className="group flex items-center justify-between gap-4 py-3 hover:bg-foreground/[0.02] -mx-2 px-2 transition-colors"
         >
             <div className="flex-1 min-w-0">
@@ -218,6 +218,7 @@ export default function Projects() {
     const [otherRepos, setOtherRepos] = useState<Repo[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [homeUrl, setHomeUrl] = useState("/");
 
     // All curated repo names (for deduplication in "everything else")
     const curatedNames = new Set(
@@ -225,6 +226,16 @@ export default function Projects() {
     );
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            const h = window.location.hostname.toLowerCase();
+            if (/^(blog|projects|about|fun)\./.test(h)) {
+                if (h.includes("localhost")) {
+                    setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+                } else {
+                    setHomeUrl("https://intro.vrbl.win");
+                }
+            }
+        }
         const fetchRepos = async () => {
             try {
                 const res = await fetch("https://api.github.com/users/VariableThe/repos?per_page=100&sort=updated");
@@ -273,7 +284,7 @@ export default function Projects() {
         <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-20 pt-16 md:pt-20">
             <div className="max-w-5xl mx-auto">
 
-                <Link href="/" className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
+                <Link href={homeUrl} className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
                     <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                     <span>Home</span>
                 </Link>
@@ -282,7 +293,7 @@ export default function Projects() {
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.2 }}
                     className="mb-16"
                 >
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Projects</h1>
@@ -311,7 +322,7 @@ export default function Projects() {
                                 key={group.category}
                                 initial={{ opacity: 0, y: 12 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: gi * 0.07, duration: 0.4 }}
+                                transition={{ delay: gi * 0.03, duration: 0.2 }}
                             >
                                 {/* Category heading */}
                                 <div className="flex items-center gap-3 mb-5">

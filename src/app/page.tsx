@@ -60,7 +60,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
         >
           <h1 className="text-7xl md:text-[9rem] font-black uppercase leading-none tracking-tighter p5-skew">
             <span className="bg-foreground text-background px-3 py-1 inline-block p5-shadow">Aditya</span>
@@ -74,7 +74,7 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.25, duration: 0.5 }}
+          transition={{ delay: 0.08, duration: 0.25 }}
           className="text-lg md:text-xl text-foreground/55 leading-relaxed"
         >
           Building open-source tools, native apps, and whatever else feels interesting.
@@ -84,7 +84,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.38, duration: 0.5 }}
+          transition={{ delay: 0.14, duration: 0.25 }}
           className="flex flex-wrap items-center justify-center gap-3"
         >
           {NAV.map((item) => (
@@ -100,7 +100,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.18, duration: 0.25 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
           {EXTERNAL.map((link) => (
@@ -121,7 +121,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ delay: 0.6, duration: 0.4 }}
+          transition={{ delay: 0.22, duration: 0.2 }}
           className="w-16 h-px bg-border"
         />
 
@@ -129,7 +129,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.65, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.25 }}
           className="flex items-center gap-6"
         >
           {SOCIALS.map(({ href, label, Icon }) => (

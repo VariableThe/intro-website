@@ -10,9 +10,20 @@ export default function About() {
     const [starCount, setStarCount] = useState<number | string>("18");
     const [forkCount, setForkCount] = useState<number | string>("—");
     const [followers, setFollowers] = useState<number | string>("—");
+    const [homeUrl, setHomeUrl] = useState("/");
     const yearsCoding = new Date().getFullYear() - 2015;
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            const h = window.location.hostname.toLowerCase();
+            if (/^(blog|projects|about|fun)\./.test(h)) {
+                if (h.includes("localhost")) {
+                    setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+                } else {
+                    setHomeUrl("https://intro.vrbl.win");
+                }
+            }
+        }
         const fetchStats = async () => {
             try {
                 const userRes = await fetch("https://api.github.com/users/VariableThe");
@@ -94,7 +105,7 @@ export default function About() {
             <div className="max-w-5xl mx-auto">
 
                 {/* Back */}
-                <Link href="/" className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
+                <Link href={homeUrl} className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
                     <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                     <span>Home</span>
                 </Link>
@@ -106,7 +117,7 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.22 }}
                         >
                             <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">
                                 Aditya<br />
@@ -186,7 +197,7 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.15, duration: 0.5 }}
+                            transition={{ delay: 0.06, duration: 0.22 }}
                         >
                             <h2 className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-8">Timeline</h2>
 
@@ -196,7 +207,7 @@ export default function About() {
                                         key={item.year}
                                         initial={{ opacity: 0, x: -8 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.2 + i * 0.07, duration: 0.4 }}
+                                        transition={{ delay: 0.08 + i * 0.03, duration: 0.2 }}
                                         className="flex gap-6 group"
                                     >
                                         {/* Year + line */}

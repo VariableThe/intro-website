@@ -3,6 +3,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { useEffect, useState } from "react";
 
 // ─── Import your post content here ────────────────────────────────────────
 // When you add a new post, create a file in src/app/blog/posts/<slug>.ts
@@ -23,14 +24,22 @@ const POSTS: Record<string, {
 // ──────────────────────────────────────────────────────────────────────────
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
+  const [blogUrl, setBlogUrl] = useState("/blog");
   const post = POSTS[params.slug];
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && /^blog\./i.test(window.location.hostname)) {
+      setBlogUrl("/");
+    }
+  }, []);
+
   if (!post) notFound();
 
   return (
     <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-20 pt-16 md:pt-20">
       <div className="max-w-2xl mx-auto">
 
-        <Link href="/blog" className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
+        <Link href={blogUrl} className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           <span>Blog</span>
         </Link>

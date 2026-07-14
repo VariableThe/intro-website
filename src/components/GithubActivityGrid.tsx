@@ -127,7 +127,7 @@ export function GithubActivityGrid({ username = "VariableThe" }: { username?: st
         <motion.section
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="border border-border p-5 sm:p-6 mb-16 bg-background/50 backdrop-blur-sm"
         >
             {/* Header / Title */}

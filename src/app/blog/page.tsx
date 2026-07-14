@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 // ─── Add your posts here ───────────────────────────────────────────────────
 // Each post is a plain object. When you write a real post, add it to the top
@@ -26,13 +27,27 @@ const POSTS: {
 // ──────────────────────────────────────────────────────────────────────────
 
 export default function Blog() {
+  const [homeUrl, setHomeUrl] = useState("/");
   const hasPosts = POSTS.length > 0;
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const h = window.location.hostname.toLowerCase();
+      if (/^(blog|projects|about|fun)\./.test(h)) {
+        if (h.includes("localhost")) {
+          setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+        } else {
+          setHomeUrl("https://intro.vrbl.win");
+        }
+      }
+    }
+  }, []);
 
   return (
     <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-20 pt-16 md:pt-20">
       <div className="max-w-2xl mx-auto">
 
-        <Link href="/" className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
+        <Link href={homeUrl} className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           <span>Home</span>
         </Link>
@@ -40,7 +55,7 @@ export default function Blog() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.2 }}
           className="mb-14"
         >
           <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Blog</h1>
@@ -56,7 +71,7 @@ export default function Blog() {
                 key={post.slug}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06, duration: 0.4 }}
+                transition={{ delay: i * 0.025, duration: 0.2 }}
               >
                 <Link href={`/blog/${post.slug}`} className="group block py-6">
                   <div className="flex items-start justify-between gap-4">
@@ -84,7 +99,7 @@ export default function Blog() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1, duration: 0.2 }}
             className="py-16 border-t border-border"
           >
             <p className="text-foreground/35 font-mono text-sm">Nothing here yet.</p>

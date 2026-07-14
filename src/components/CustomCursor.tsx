@@ -26,7 +26,7 @@ export function CustomCursor() {
                     x: mousePosition.x - 16,
                     y: mousePosition.y - 16,
                 }}
-                transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+                transition={{ type: "spring", stiffness: 900, damping: 28, mass: 0.2 }}
             />
             <motion.div
                 className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-50"
@@ -34,7 +34,7 @@ export function CustomCursor() {
                     x: mousePosition.x - 4,
                     y: mousePosition.y - 4,
                 }}
-                transition={{ type: "spring", stiffness: 1000, damping: 28, mass: 0.1 }}
+                transition={{ type: "spring", stiffness: 1600, damping: 25, mass: 0.05 }}
             />
         </>
     );
