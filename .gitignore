@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/public/music/library-backup-*.xml
 
 # debug
 npm-debug.log*

@@ -252,6 +252,8 @@ function buildResult(tracks: NormalizedTrack[], albums: NormalizedAlbum[], lastU
   const genres = new Set(tracks.map((t) => t.genre).filter(Boolean));
   const bpmValues = tracks.map((t) => t.bpm).filter((b): b is number => !!b);
   const totalPlayCount = tracks.reduce((sum, t) => sum + (t.playCount ?? 0), 0);
+  const totalTimeListenedMs = tracks.reduce((sum, t) => sum + ((t.duration ?? 0) * (t.playCount ?? 0)), 0);
+  const totalDurationMs = tracks.reduce((sum, t) => sum + (t.duration ?? 0), 0);
   const years = tracks.map((t) => t.year).filter((y): y is number => !!y);
 
   return {
@@ -264,6 +266,8 @@ function buildResult(tracks: NormalizedTrack[], albums: NormalizedAlbum[], lastU
       totalGenres: genres.size,
       avgBpm: bpmValues.length > 0 ? Math.round(bpmValues.reduce((a, b) => a + b) / bpmValues.length) : undefined,
       totalPlayCount,
+      totalTimeListenedMs,
+      totalDurationMs,
       totalLovedTracks: tracks.filter((t) => t.loved).length,
       totalRatedAlbums: albums.filter((a) => a.rating && a.rating > 0).length,
       oldestYear: years.length > 0 ? Math.min(...years) : undefined,

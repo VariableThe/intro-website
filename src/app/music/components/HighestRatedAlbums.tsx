@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Star, Disc3 } from "lucide-react";
+import { Star } from "lucide-react";
 import { CoverImage } from "./CoverImage";
 import type { NormalizedAlbum } from "@/lib/music/types";
 
@@ -66,13 +65,8 @@ export function HighestRatedAlbums({ albums, onAlbumClick }: Props) {
                   ))}
                 </div>
 
-                {/* Hover overlay with disc icon */}
-                <div className="absolute inset-0 bg-background/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 text-center">
-                  <Disc3 size={32} className="text-primary mb-2 animate-spin-slow" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-foreground/80">
-                    View Album Details
-                  </span>
-                </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-opacity duration-300" />
               </div>
 
               {/* Title & Info */}

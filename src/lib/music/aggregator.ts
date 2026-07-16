@@ -156,6 +156,8 @@ function mergeStats(partials: Array<Partial<MusicStats>>): MusicStats {
     merged.totalGenres = Math.max(merged.totalGenres, p.totalGenres ?? 0);
     merged.avgBpm ??= p.avgBpm;
     merged.totalPlayCount = (merged.totalPlayCount ?? 0) + (p.totalPlayCount ?? 0);
+    merged.totalTimeListenedMs = (merged.totalTimeListenedMs ?? 0) + (p.totalTimeListenedMs ?? 0);
+    merged.totalDurationMs = (merged.totalDurationMs ?? 0) + (p.totalDurationMs ?? 0);
     merged.totalLovedTracks ??= p.totalLovedTracks;
     merged.totalRatedAlbums ??= p.totalRatedAlbums;
     merged.librarySizeBytes = (merged.librarySizeBytes ?? 0) + (p.librarySizeBytes ?? 0);
@@ -214,6 +216,28 @@ export async function aggregateMusicData(): Promise<{
   }
   const allTracks = Array.from(deduplicatedTrackMap.values());
 
+  // ── Compute Frequency and Recency Indexes across all tracks ──
+  const maxPlays = Math.max(1, ...allTracks.map((t) => t.playCount ?? 0));
+  const maxTimestamp = Math.max(
+    0,
+    ...allTracks.map((t) => toEpoch(t.lastPlayed ?? t.playedAt ?? t.dateAdded))
+  );
+
+  for (const track of allTracks) {
+    const plays = track.playCount ?? 0;
+    const frequencyIndex = Math.min(100, Math.max(0, Math.round((plays / maxPlays) * 100)));
+
+    const ts = toEpoch(track.lastPlayed ?? track.playedAt ?? track.dateAdded);
+    let recencyIndex = 0;
+    if (ts > 0 && maxTimestamp > 0) {
+      const daysAgo = Math.max(0, (maxTimestamp - ts) / (1000 * 60 * 60 * 24));
+      // Exponential decay with a 45-day half-life
+      recencyIndex = Math.min(100, Math.max(0, Math.round(100 * Math.exp(-daysAgo / 45))));
+    }
+    track.frequencyIndex = frequencyIndex;
+    track.recencyIndex = recencyIndex;
+  }
+
   // ── Deduplicate albums ──
   const deduplicatedAlbumMap = new Map<string, NormalizedAlbum>();
   for (const album of allRawAlbums) {
@@ -225,10 +249,41 @@ export async function aggregateMusicData(): Promise<{
   const allAlbums = Array.from(deduplicatedAlbumMap.values());
 
   // ── Apple XML derived sections ──
-  const onRepeat = [...allTracks]
+  const onRepeatAllTime = [...allTracks]
     .filter((t) => (t.playCount ?? 0) > 0)
     .sort((a, b) => (b.playCount ?? 0) - (a.playCount ?? 0))
     .slice(0, 30);
+
+  const onRepeatRecent = [...allTracks]
+    .filter((t) => (t.playCount ?? 0) > 0)
+    .map((t) => {
+      const tsLast = toEpoch(t.lastPlayed ?? t.playedAt ?? t.dateAdded);
+      const tsAdded = toEpoch(t.dateAdded);
+
+      const daysSinceLastPlayed = tsLast > 0 && maxTimestamp > 0
+        ? Math.max(0, (maxTimestamp - tsLast) / (1000 * 60 * 60 * 24))
+        : 365;
+
+      const daysSinceAdded = tsAdded > 0 && maxTimestamp > 0
+        ? Math.max(14, (maxTimestamp - tsAdded) / (1000 * 60 * 60 * 24))
+        : 365;
+
+      // 1. Recency Decay: penalizes tracks that haven't been active in the last 20–30 days
+      const recencyWeight = Math.exp(-daysSinceLastPlayed / 20);
+
+      // 2. Play Velocity: daily play frequency across the track's tenure in your library (with a 14-day minimum floor)
+      const velocity = (t.playCount ?? 0) / daysSinceAdded;
+
+      // 3. Composite Recent Repeat Score:
+      // Prevents songs with massive all-time plays from 1 year ago from jumping to #1 due to a single play today
+      const recentRepeatScore = velocity * recencyWeight * 1000;
+
+      return { ...t, repeatScore: recentRepeatScore };
+    })
+    .sort((a, b) => (b.repeatScore ?? 0) - (a.repeatScore ?? 0) || (b.playCount ?? 0) - (a.playCount ?? 0))
+    .slice(0, 30);
+
+  const onRepeat = onRepeatAllTime;
 
   const recentlyPlayed = [...allTracks]
     .filter((t) => t.lastPlayed || t.playedAt || (t.playCount ?? 0) > 0)
@@ -256,7 +311,7 @@ export async function aggregateMusicData(): Promise<{
     artistCounts.set(t.artist, existing);
   }
 
-  const maxPlays = Math.max(1, Array.from(artistCounts.values()).sort((a, b) => b.playCount - a.playCount)[0]?.playCount ?? 1);
+  const maxArtistPlays = Math.max(1, Array.from(artistCounts.values()).sort((a, b) => b.playCount - a.playCount)[0]?.playCount ?? 1);
   const topArtistsList = Array.from(artistCounts.values())
     .sort((a, b) => b.playCount - a.playCount)
     .slice(0, 20)
@@ -266,7 +321,7 @@ export async function aggregateMusicData(): Promise<{
       name: a.artist,
       images: a.artwork ? [{ url: a.artwork, width: 300, height: 300 }] : [],
       genres: Array.from(a.genres).slice(0, 3),
-      popularity: Math.min(100, Math.round((a.playCount / maxPlays) * 100)),
+      popularity: Math.min(100, Math.round((a.playCount / maxArtistPlays) * 100)),
       url: `https://music.apple.com/us/search?term=${encodeURIComponent(a.artist)}`,
     }));
 
@@ -325,6 +380,9 @@ export async function aggregateMusicData(): Promise<{
   stats.totalAlbums = allAlbums.length;
   stats.totalArtists = new Set(allTracks.map((t) => normalizeKey(t.artist))).size;
   stats.totalGenres = genreDistribution.length;
+  stats.totalPlayCount = allTracks.reduce((sum, t) => sum + (t.playCount ?? 0), 0);
+  stats.totalTimeListenedMs = allTracks.reduce((sum, t) => sum + ((t.duration ?? 0) * (t.playCount ?? 0)), 0);
+  stats.totalDurationMs = allTracks.reduce((sum, t) => sum + (t.duration ?? 0), 0);
 
   const data: MusicData = {
     nowPlaying,
@@ -332,6 +390,8 @@ export async function aggregateMusicData(): Promise<{
     topTracks,
     topArtists,
     onRepeat,
+    onRepeatAllTime,
+    onRepeatRecent,
     lovedTracks,
     highestRatedAlbums,
     mostLovedAlbums,

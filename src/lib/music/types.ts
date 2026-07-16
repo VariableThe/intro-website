@@ -31,6 +31,10 @@ export interface NormalizedTrack {
   composer?: string;
   skipCount?: number;
   compilation?: boolean;
+  // Computed indexes for On Repeat analysis
+  frequencyIndex?: number; // 0–100 score relative to max library plays
+  recencyIndex?: number;   // 0–100 exponential decay score based on last played timestamp
+  repeatScore?: number;    // combined weighted score for active On Repeat mode
 }
 
 export interface NormalizedArtist {
@@ -91,6 +95,8 @@ export interface MusicStats {
   totalGenres: number;
   avgBpm?: number;
   totalPlayCount?: number;
+  totalTimeListenedMs?: number; // cumulative listening duration (playCount * duration)
+  totalDurationMs?: number;     // sum of track durations across unique library tracks
   totalLovedTracks?: number;
   totalRatedAlbums?: number;
   librarySizeBytes?: number;
@@ -121,7 +127,9 @@ export interface MusicData {
   topArtists: TopItems<NormalizedArtist>;
 
   // Apple XML derived
-  onRepeat: NormalizedTrack[];        // sorted by playCount desc
+  onRepeat: NormalizedTrack[];        // sorted by playCount desc (default / all time)
+  onRepeatAllTime: NormalizedTrack[]; // all-time frequency index sorted
+  onRepeatRecent: NormalizedTrack[];  // recent recency & frequency index weighted
   lovedTracks: NormalizedTrack[];     // loved = true
   highestRatedAlbums: NormalizedAlbum[];
   mostLovedAlbums: NormalizedAlbum[];
