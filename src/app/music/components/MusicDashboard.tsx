@@ -83,16 +83,38 @@ export function MusicDashboard({ response }: Props) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-3">
-            Music
-          </h1>
-          <p className="text-foreground/40 text-base font-mono">
-            What I&apos;ve been listening to, loving, and repeating.
-            {!hasSpotify && !hasApple && (
-              <span className="ml-2 text-primary">No data sources configured.</span>
-            )}
-          </p>
+          <div>
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-3">
+              Music
+            </h1>
+            <p className="text-foreground/40 text-base font-mono">
+              What I&apos;ve been listening to, loving, and repeating.
+              {!hasSpotify && !hasApple && (
+                <span className="ml-2 text-primary">No data sources configured.</span>
+              )}
+            </p>
+          </div>
+
+          {/* ── Total Time Listened Header Stat ── */}
+          {(data.stats.totalTimeListenedMs ?? 0) > 0 && (
+            <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card/60 backdrop-blur-md shadow-sm self-start md:self-auto">
+              <div className="flex flex-col">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+                  Total Time Listened
+                </span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="text-3xl md:text-4xl font-black font-mono tracking-tight text-foreground tabular-nums">
+                    {Math.round((data.stats.totalTimeListenedMs ?? 0) / (1000 * 60)).toLocaleString()}
+                  </span>
+                  <span className="text-sm font-mono text-muted-foreground uppercase">
+                    Minutes ({((data.stats.totalTimeListenedMs ?? 0) / (1000 * 60 * 60)).toFixed(1)} Hrs)
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
 
@@ -133,9 +155,12 @@ export function MusicDashboard({ response }: Props) {
         )}
 
         {/* ── On Repeat ── */}
-        {hasApple && data.onRepeat.length > 0 && (
+        {hasApple && (data.onRepeatAllTime?.length > 0 || data.onRepeat.length > 0) && (
           <Section>
-            <OnRepeat tracks={data.onRepeat} />
+            <OnRepeat
+              allTimeTracks={data.onRepeatAllTime ?? data.onRepeat}
+              recentTracks={data.onRepeatRecent ?? data.onRepeat}
+            />
           </Section>
         )}
 

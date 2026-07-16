@@ -132,6 +132,9 @@ export function MusicStats({ stats, providers }: MusicStatsProps) {
     ...(stats.totalPlayCount !== undefined
       ? [{ label: "Total Plays", value: stats.totalPlayCount }]
       : []),
+    ...(stats.totalTimeListenedMs !== undefined && stats.totalTimeListenedMs > 0
+      ? [{ label: "Time Listened", value: stats.totalTimeListenedMs / 60000, suffix: " mins", decimals: 0 }]
+      : []),
   ];
 
   return (
@@ -163,7 +166,7 @@ export function MusicStats({ stats, providers }: MusicStatsProps) {
                   opacity: 0.7,
                 }}
               >
-                {p}
+                {p === "appleXml" ? "Apple Music" : p === "spotify" ? "Spotify" : p}
               </span>
             ))}
           </div>

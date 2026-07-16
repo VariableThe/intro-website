@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Clock, Disc3, Sparkles } from "lucide-react";
+import { Clock, Sparkles } from "lucide-react";
 import { CoverImage } from "./CoverImage";
 import type { NormalizedAlbum } from "@/lib/music/types";
 
@@ -24,8 +23,8 @@ function formatRelativeDate(dateInput?: Date | string): string {
 
   if (diffDays === 0) return "Today";
   if (diffDays === 1) return "Yesterday";
-  if (diffDays < 7) return `${diffDays} days ago`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+  if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? "day" : "days"} ago`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} ${Math.floor(diffDays / 7) === 1 ? "week" : "weeks"} ago`;
   if (diffDays < 365) {
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   }
@@ -79,9 +78,6 @@ export function RecentlyAdded({ albums, onAlbumClick }: Props) {
                   artist={album.artist}
                   type="album"
                 />
-                <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <Disc3 size={20} className="text-primary animate-spin-slow" />
-                </div>
               </div>
 
               {/* Title and details */}
