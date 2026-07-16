@@ -212,6 +212,21 @@ function SmallRepoRow({ repo, index }: { repo: Repo; index: number }) {
     );
 }
 
+const CURATED_NAMES = new Set(
+    CURATED.flatMap(g => g.projects.map(p => p.repoName.toLowerCase()))
+);
+
+interface GitHubRepoItem {
+    id: number;
+    name: string;
+    description: string | null;
+    html_url: string;
+    stargazers_count?: number;
+    forks_count?: number;
+    language?: string | null;
+    fork?: boolean;
+}
+
 export default function Projects() {
     // Live data from GitHub
     const [liveRepos, setLiveRepos] = useState<Record<string, { stars: number; forks: number; language: string }>>({});
@@ -220,19 +235,14 @@ export default function Projects() {
     const [error, setError] = useState<string | null>(null);
     const [homeUrl, setHomeUrl] = useState("/");
 
-    // All curated repo names (for deduplication in "everything else")
-    const curatedNames = new Set(
-        CURATED.flatMap(g => g.projects.map(p => p.repoName.toLowerCase()))
-    );
-
     useEffect(() => {
         if (typeof window !== "undefined") {
             const h = window.location.hostname.toLowerCase();
             if (/^(blog|projects|about|fun)\./.test(h)) {
                 if (h.includes("localhost")) {
-                    setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+                    queueMicrotask(() => setHomeUrl(`http://localhost:${window.location.port || "3000"}`));
                 } else {
-                    setHomeUrl("https://intro.vrbl.win");
+                    queueMicrotask(() => setHomeUrl("https://intro.vrbl.win"));
                 }
             }
         }
@@ -240,7 +250,7 @@ export default function Projects() {
             try {
                 const res = await fetch("https://api.github.com/users/VariableThe/repos?per_page=100&sort=updated");
                 if (!res.ok) throw new Error("GitHub API error");
-                const data: any[] = await res.json();
+                const data = (await res.json()) as GitHubRepoItem[];
 
                 // Build live lookup
                 const lookup: Record<string, { stars: number; forks: number; language: string }> = {};
@@ -255,7 +265,7 @@ export default function Projects() {
 
                 // Everything not in curated sections
                 const rest: Repo[] = data
-                    .filter(r => !r.fork && !curatedNames.has(r.name.toLowerCase()))
+                    .filter(r => !r.fork && !CURATED_NAMES.has(r.name.toLowerCase()))
                     .map(r => ({
                         id: r.id,
                         name: r.name.replace(/-/g, " ").replace(/_/g, " "),
@@ -267,8 +277,9 @@ export default function Projects() {
                         language: r.language || "",
                     }));
                 setOtherRepos(rest);
-            } catch (e: any) {
-                setError(e.message);
+            } catch (e: unknown) {
+                const msg = e instanceof Error ? e.message : "GitHub API error";
+                setError(msg);
             } finally {
                 setLoading(false);
             }

@@ -35,9 +35,9 @@ export default function Blog() {
       const h = window.location.hostname.toLowerCase();
       if (/^(blog|projects|about|fun)\./.test(h)) {
         if (h.includes("localhost")) {
-          setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+          queueMicrotask(() => setHomeUrl(`http://localhost:${window.location.port || "3000"}`));
         } else {
-          setHomeUrl("https://intro.vrbl.win");
+          queueMicrotask(() => setHomeUrl("https://intro.vrbl.win"));
         }
       }
     }
@@ -60,7 +60,7 @@ export default function Blog() {
         >
           <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Blog</h1>
           <p className="text-foreground/50 text-base">
-            Writing about things I've built, broken, or figured out.
+            Writing about things I&apos;ve built, broken, or figured out.
           </p>
         </motion.div>
 

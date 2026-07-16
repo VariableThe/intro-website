@@ -18,9 +18,9 @@ export default function About() {
             const h = window.location.hostname.toLowerCase();
             if (/^(blog|projects|about|fun)\./.test(h)) {
                 if (h.includes("localhost")) {
-                    setHomeUrl(`http://localhost:${window.location.port || "3000"}`);
+                    queueMicrotask(() => setHomeUrl(`http://localhost:${window.location.port || "3000"}`));
                 } else {
-                    setHomeUrl("https://intro.vrbl.win");
+                    queueMicrotask(() => setHomeUrl("https://intro.vrbl.win"));
                 }
             }
         }
@@ -35,12 +35,12 @@ export default function About() {
                 const reposRes = await fetch("https://api.github.com/users/VariableThe/repos?per_page=100");
                 if (reposRes.ok) {
                     const reposData = await reposRes.json();
-                    const totalStars = reposData.reduce((acc: number, r: any) => acc + (r.stargazers_count || 0), 0);
-                    const totalForks = reposData.reduce((acc: number, r: any) => acc + (r.forks_count || 0), 0);
+                    const totalStars = reposData.reduce((acc: number, r: { stargazers_count?: number }) => acc + (r.stargazers_count || 0), 0);
+                    const totalForks = reposData.reduce((acc: number, r: { forks_count?: number }) => acc + (r.forks_count || 0), 0);
                     if (totalStars > 0) setStarCount(totalStars);
                     if (totalForks >= 0) setForkCount(totalForks);
                 }
-            } catch (err) {
+            } catch {
                 // silently fail — fallback values remain
             }
         };
