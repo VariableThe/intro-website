@@ -143,8 +143,7 @@ export function AlbumWall({ albums, onAlbumClick }: AlbumWallProps) {
       <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <h2
-            className="text-2xl font-bold font-mono tracking-tight uppercase flex items-center gap-2"
-            style={{ color: "var(--foreground)" }}
+            className="font-mono text-xs uppercase tracking-widest text-foreground/50 flex items-center gap-2"
           >
             Album Wall
           </h2>

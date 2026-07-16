@@ -141,7 +141,7 @@ export function ListeningTimeline({ heatmap }: Props) {
               <Calendar size={20} />
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight">
+              <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
                 Listening Activity
               </h2>
               <p className="text-foreground/40 text-xs font-mono">

@@ -97,10 +97,7 @@ export function TodaysPick({ album, onAlbumClick }: TodaysPickProps) {
           className="flex flex-col gap-3 min-w-0"
         >
           {/* Label */}
-          <span
-            className="text-[10px] font-mono uppercase tracking-[0.22em]"
-            style={{ color: "var(--primary)" }}
-          >
+          <span className="font-mono text-xs uppercase tracking-widest text-foreground/50">
             Today&apos;s Pick
           </span>
 

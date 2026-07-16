@@ -142,10 +142,7 @@ export function MusicStats({ stats, providers }: MusicStatsProps) {
       {/* Section header */}
       <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
         <div className="flex items-center gap-3">
-          <h2
-            className="text-xs font-mono uppercase tracking-widest"
-            style={{ color: "var(--muted-foreground)" }}
-          >
+          <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
             Library Stats
           </h2>
           {stats.lastUpdated && (

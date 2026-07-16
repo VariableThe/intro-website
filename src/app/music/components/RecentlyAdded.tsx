@@ -48,7 +48,7 @@ export function RecentlyAdded({ albums, onAlbumClick }: Props) {
           <Clock size={20} />
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
             Recently Added
           </h2>
           <p className="text-foreground/40 text-sm font-mono">
