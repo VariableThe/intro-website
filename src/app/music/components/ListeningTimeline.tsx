@@ -15,6 +15,17 @@ interface DayCell {
   dayOfWeek: number; // 0 (Sun) to 6 (Sat)
 }
 
+function formatMonthYear(dateStr?: string): string {
+  if (!dateStr) return "";
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr.slice(0, 7);
+    return new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(d);
+  } catch {
+    return dateStr.slice(0, 7);
+  }
+}
+
 export function ListeningTimeline({ heatmap }: Props) {
   const [hoveredDay, setHoveredDay] = useState<DayCell | null>(null);
 
@@ -109,6 +120,19 @@ export function ListeningTimeline({ heatmap }: Props) {
     }
   };
 
+  const midIdx = Math.ceil(weeks.length / 2);
+  const firstHalf = weeks.slice(0, midIdx);
+  const secondHalf = weeks.slice(midIdx);
+
+  const firstStart = formatMonthYear(firstHalf[0]?.[0]?.dateStr);
+  const firstEnd = formatMonthYear(
+    firstHalf[firstHalf.length - 1]?.[firstHalf[firstHalf.length - 1]?.length - 1]?.dateStr
+  );
+  const secondStart = formatMonthYear(secondHalf[0]?.[0]?.dateStr);
+  const secondEnd = formatMonthYear(
+    secondHalf[secondHalf.length - 1]?.[secondHalf[secondHalf.length - 1]?.length - 1]?.dateStr
+  );
+
   return (
     <div className="bg-card/40 border border-border p-6 md:p-8 h-full flex flex-col justify-between">
       <div>
@@ -134,23 +158,58 @@ export function ListeningTimeline({ heatmap }: Props) {
           </div>
         </div>
 
-        {/* Heatmap Grid */}
-        <div className="w-full overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 scrollbar-hide">
-          <div className="flex w-full justify-between items-start gap-[2px] md:gap-[3px] lg:gap-1 min-w-[520px] sm:min-w-0">
-            {weeks.map((week, wIdx) => (
-              <div key={wIdx} className="flex flex-col gap-[2px] md:gap-[3px] lg:gap-1 flex-1 max-w-[14px]">
-                {week.map((day) => (
-                  <div
-                    key={day.dateStr}
-                    onMouseEnter={() => setHoveredDay(day)}
-                    onMouseLeave={() => setHoveredDay(null)}
-                    className={`w-full aspect-square rounded-[2px] transition-colors cursor-pointer ${getCellColor(
-                      day.level
-                    )}`}
-                  />
-                ))}
-              </div>
-            ))}
+        {/* Heatmap Grid — 2 Layers (First 6 Months above, Recent 6 Months below) */}
+        <div className="flex flex-col gap-6 my-4">
+          {/* Top Layer: Earlier 6 Months */}
+          <div className="space-y-2.5">
+            <div className="flex justify-between items-center text-[11px] font-mono text-foreground/50 border-b border-border/40 pb-1">
+              <span className="font-semibold text-foreground/70">Earlier 6 Months</span>
+              <span>
+                {firstStart} — {firstEnd}
+              </span>
+            </div>
+            <div className="flex w-full justify-between items-start gap-1 sm:gap-1.5">
+              {firstHalf.map((week, wIdx) => (
+                <div key={wIdx} className="flex flex-col gap-1 sm:gap-1.5 flex-1 max-w-[18px]">
+                  {week.map((day) => (
+                    <div
+                      key={day.dateStr}
+                      onMouseEnter={() => setHoveredDay(day)}
+                      onMouseLeave={() => setHoveredDay(null)}
+                      className={`w-full aspect-square rounded-[2px] transition-colors cursor-pointer ${getCellColor(
+                        day.level
+                      )}`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Layer: Recent 6 Months */}
+          <div className="space-y-2.5">
+            <div className="flex justify-between items-center text-[11px] font-mono text-foreground/50 border-b border-border/40 pb-1">
+              <span className="font-semibold text-foreground/70">Recent 6 Months</span>
+              <span>
+                {secondStart} — {secondEnd}
+              </span>
+            </div>
+            <div className="flex w-full justify-between items-start gap-1 sm:gap-1.5">
+              {secondHalf.map((week, wIdx) => (
+                <div key={wIdx} className="flex flex-col gap-1 sm:gap-1.5 flex-1 max-w-[18px]">
+                  {week.map((day) => (
+                    <div
+                      key={day.dateStr}
+                      onMouseEnter={() => setHoveredDay(day)}
+                      onMouseLeave={() => setHoveredDay(null)}
+                      className={`w-full aspect-square rounded-[2px] transition-colors cursor-pointer ${getCellColor(
+                        day.level
+                      )}`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
