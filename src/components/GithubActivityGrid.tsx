@@ -41,8 +41,9 @@ export function GithubActivityGrid({ username = "VariableThe" }: { username?: st
                 
                 setData(json.contributions || []);
                 setTotal(json.total.lastYear || json.contributions?.reduce((acc, d) => acc + d.count, 0) || 0);
-            } catch (err: any) {
-                setError(err.message);
+            } catch (err: unknown) {
+                const msg = err instanceof Error ? err.message : "Could not load GitHub activity";
+                setError(msg);
             } finally {
                 setLoading(false);
             }

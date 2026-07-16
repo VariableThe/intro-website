@@ -29,7 +29,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   useEffect(() => {
     if (typeof window !== "undefined" && /^blog\./i.test(window.location.hostname)) {
-      setBlogUrl("/");
+      queueMicrotask(() => setBlogUrl("/"));
     }
   }, []);
 
