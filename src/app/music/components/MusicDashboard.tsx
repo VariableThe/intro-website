@@ -40,10 +40,10 @@ function Section({
 }) {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.2 }}
       className={`mb-16 md:mb-24 ${className}`}
     >
       {children}
@@ -80,41 +80,19 @@ export function MusicDashboard({ response }: Props) {
       {/* ── Page header ── */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-8">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6"
+          transition={{ duration: 0.2 }}
         >
-          <div>
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-3">
-              Music
-            </h1>
-            <p className="text-foreground/40 text-base font-mono">
-              What I&apos;ve been listening to, loving, and repeating.
-              {!hasSpotify && !hasApple && (
-                <span className="ml-2 text-primary">No data sources configured.</span>
-              )}
-            </p>
-          </div>
-
-          {/* ── Total Time Listened Header Stat ── */}
-          {(data.stats.totalTimeListenedMs ?? 0) > 0 && (
-            <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card/60 backdrop-blur-md shadow-sm self-start md:self-auto">
-              <div className="flex flex-col">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
-                  Total Time Listened
-                </span>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-3xl md:text-4xl font-black font-mono tracking-tight text-foreground tabular-nums">
-                    {Math.round((data.stats.totalTimeListenedMs ?? 0) / (1000 * 60)).toLocaleString()}
-                  </span>
-                  <span className="text-sm font-mono text-muted-foreground uppercase">
-                    Minutes ({((data.stats.totalTimeListenedMs ?? 0) / (1000 * 60 * 60)).toFixed(1)} Hrs)
-                  </span>
-                </div>
-              </div>
-            </div>
-          )}
+          <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">
+            Music
+          </h1>
+          <p className="text-foreground/50 text-base">
+            What I&apos;ve been listening to, loving, and repeating.
+            {!hasSpotify && !hasApple && (
+              <span className="ml-2 text-primary">No data sources configured.</span>
+            )}
+          </p>
         </motion.div>
       </div>
 

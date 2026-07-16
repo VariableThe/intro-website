@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Music2, ArrowRight } from "lucide-react";
+import { ArrowLeft, Music2, ArrowRight, Flag } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // ─── Things to add here later ──────────────────────────────────────────────
@@ -45,8 +45,10 @@ const SECTIONS: Section[] = [
   {
     id: "ctf",
     label: "CTF Writeups",
-    desc: "Notes from KernelCTF, AuroraCTF, IndomitusCTF and others.",
-    status: "soon",
+    desc: "Notes from KernelCTF, picoCTF, and other offensive security challenges.",
+    status: "live",
+    href: "/ctf",
+    icon: <Flag size={18} className="text-primary" />,
   },
   {
     id: "games",

@@ -40,7 +40,7 @@ export function TopArtists({ topArtists, onArtistClick }: TopArtistsProps) {
     <section className="w-full">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold font-mono tracking-tight text-[var(--foreground)]">
+        <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
           Top Artists
         </h2>
 

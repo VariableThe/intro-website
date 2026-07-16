@@ -19,7 +19,7 @@ export function MostLovedAlbums({ albums, onAlbumClick }: Props) {
           <Heart size={20} className="fill-primary" />
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
             Most Loved Albums
           </h2>
           <p className="text-foreground/40 text-sm font-mono">

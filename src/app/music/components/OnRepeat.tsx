@@ -39,7 +39,7 @@ export function OnRepeat({ tracks, allTimeTracks, recentTracks }: Props) {
             <Repeat size={22} />
           </div>
           <div>
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
               On Repeat
             </h2>
             <p className="text-foreground/40 text-xs md:text-sm font-mono">

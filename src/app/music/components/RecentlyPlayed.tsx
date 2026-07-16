@@ -155,8 +155,7 @@ export function RecentlyPlayed({ tracks }: RecentlyPlayedProps) {
       {/* Header */}
       <div className="flex items-baseline gap-3 mb-5">
         <h2
-          className="text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="font-mono text-xs uppercase tracking-widest text-foreground/50"
         >
           Recently Played
         </h2>
