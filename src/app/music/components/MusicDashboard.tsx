@@ -51,21 +51,6 @@ function Section({
   );
 }
 
-function formatLastUpdated(dateString?: string): string {
-  if (!dateString) return "";
-  try {
-    const d = new Date(dateString);
-    if (isNaN(d.getTime())) return dateString;
-    return new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    }).format(d);
-  } catch {
-    return dateString;
-  }
-}
-
 export function MusicDashboard({ response }: Props) {
   const [selectedAlbum, setSelectedAlbum] = useState<NormalizedAlbum | null>(null);
   const [selectedArtist, setSelectedArtist] = useState<NormalizedArtist | null>(null);
@@ -89,7 +74,6 @@ export function MusicDashboard({ response }: Props) {
 
   const hasSpotify = providers.includes("spotify");
   const hasApple = providers.includes("appleXml");
-  const updatedDate = data.stats.lastUpdated || response.cachedAt;
 
   return (
     <>
@@ -109,17 +93,6 @@ export function MusicDashboard({ response }: Props) {
               <span className="ml-2 text-primary">No data sources configured.</span>
             )}
           </p>
-          {updatedDate && (
-            <div className="mt-4 flex items-center gap-2.5 font-mono text-xs text-foreground/60 bg-foreground/[0.03] border border-border/60 px-3.5 py-1.5 rounded-full w-fit">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>
-                Last updated: <span className="text-foreground font-semibold">{formatLastUpdated(updatedDate)}</span>
-              </span>
-            </div>
-          )}
         </motion.div>
       </div>
 
