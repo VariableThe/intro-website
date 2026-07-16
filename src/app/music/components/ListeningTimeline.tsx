@@ -135,16 +135,16 @@ export function ListeningTimeline({ heatmap }: Props) {
         </div>
 
         {/* Heatmap Grid */}
-        <div className="overflow-x-auto pb-4 scrollbar-hide">
-          <div className="inline-flex gap-1.5 min-w-full justify-between items-start">
+        <div className="w-full overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 scrollbar-hide">
+          <div className="flex w-full justify-between items-start gap-[2px] md:gap-[3px] lg:gap-1 min-w-[520px] sm:min-w-0">
             {weeks.map((week, wIdx) => (
-              <div key={wIdx} className="flex flex-col gap-1.5">
+              <div key={wIdx} className="flex flex-col gap-[2px] md:gap-[3px] lg:gap-1 flex-1 max-w-[14px]">
                 {week.map((day) => (
                   <div
                     key={day.dateStr}
                     onMouseEnter={() => setHoveredDay(day)}
                     onMouseLeave={() => setHoveredDay(null)}
-                    className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-[1px] transition-colors cursor-pointer ${getCellColor(
+                    className={`w-full aspect-square rounded-[2px] transition-colors cursor-pointer ${getCellColor(
                       day.level
                     )}`}
                   />
