@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { buildingPapercache } from "./posts/building-papercache";
+import { recentProjects } from "./posts/recent-projects";
 
 // ─── Add your posts here ───────────────────────────────────────────────────
 // Each post is a plain object. When you write a real post, add it to the top
@@ -15,14 +17,8 @@ const POSTS: {
   tags: string[];
   excerpt: string;
 }[] = [
-  // Example — delete this and add real ones:
-  // {
-  //   slug: "building-papercache",
-  //   title: "Building PaperCache",
-  //   date: "2026-07-01",
-  //   tags: ["open-source", "react"],
-  //   excerpt: "Why I built a reactive markdown notebook and what I learned.",
-  // },
+  recentProjects,
+  buildingPapercache,
 ];
 // ──────────────────────────────────────────────────────────────────────────
 
@@ -45,7 +41,7 @@ export default function Blog() {
 
   return (
     <main className="min-h-screen w-full bg-background p-6 md:p-12 lg:p-20 pt-16 md:pt-20">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
 
         <Link href={homeUrl} className="inline-flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors text-sm mb-12 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
@@ -56,7 +52,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
-          className="mb-14"
+          className="mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Blog</h1>
           <p className="text-foreground/50 text-base">
@@ -65,42 +61,65 @@ export default function Blog() {
         </motion.div>
 
         {hasPosts ? (
-          <div className="divide-y divide-border">
-            {POSTS.map((post, i) => (
-              <motion.div
-                key={post.slug}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.025, duration: 0.2 }}
-              >
-                <Link href={`/blog/${post.slug}`} className="group block py-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <span className="font-mono text-xs text-foreground/35 block mb-1">{post.date}</span>
-                      <h2 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors mb-2">
-                        {post.title}
-                      </h2>
-                      <p className="text-foreground/55 text-base leading-relaxed line-clamp-2">{post.excerpt}</p>
-                      <div className="flex gap-2 mt-3">
+          <div className="space-y-6">
+            {POSTS.map((post, i) => {
+              const accentColor = post.slug.includes("papercache") ? "#7c3aed" : "#e11d48";
+              return (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.2 }}
+                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex flex-col border border-border hover:border-foreground/25 p-6 sm:p-8 transition-colors card-lift"
+                  >
+                    {/* Accent line */}
+                    <div className="w-8 h-0.5 mb-5 shrink-0" style={{ backgroundColor: accentColor }} />
+
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-foreground/40 block mb-2">
+                          {post.date}
+                        </span>
+                        <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
+                          {post.title}
+                        </h2>
+                      </div>
+                      <ArrowUpRight
+                        size={18}
+                        className="text-foreground/20 group-hover:text-foreground/60 shrink-0 mt-1 transition-colors"
+                      />
+                    </div>
+
+                    <p className="text-sm sm:text-base text-foreground/55 leading-relaxed mb-6">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex flex-wrap items-center justify-between gap-3 mt-auto pt-4 border-t border-border/50">
+                      <div className="flex flex-wrap gap-2">
                         {post.tags.map(tag => (
-                          <span key={tag} className="font-mono text-xs text-foreground/35 bg-foreground/5 px-2 py-0.5">
+                          <span key={tag} className="font-mono text-xs text-foreground/40 bg-foreground/5 px-2 py-0.5 border border-border/40">
                             {tag}
                           </span>
                         ))}
                       </div>
+                      <span className="font-mono text-xs uppercase tracking-widest text-foreground/40 group-hover:text-foreground transition-colors flex items-center gap-1">
+                        Read <span className="text-primary font-bold">→</span>
+                      </span>
                     </div>
-                    <ArrowUpRight size={16} className="text-foreground/20 group-hover:text-foreground/60 mt-1 shrink-0 transition-colors" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         ) : (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.2 }}
-            className="py-16 border-t border-border"
+            className="py-16 border border-border p-8"
           >
             <p className="text-foreground/35 font-mono text-sm">Nothing here yet.</p>
             <p className="text-foreground/25 font-mono text-xs mt-1">
