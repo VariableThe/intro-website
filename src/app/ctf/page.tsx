@@ -29,6 +29,70 @@ interface Challenge {
 const CHALLENGES: Challenge[] = [
   // Challenges I authored
   {
+    id: "cathode-ray-tube",
+    title: "Cathode Ray Tube",
+    authored: true,
+    ctf: "MistCTF",
+    category: "Forensics",
+    difficulty: "Medium",
+    tags: ["FVID", "Vigenère Cipher", "Binary Encoding", "File Carving"],
+    repoName: "Indomitus",
+    githubUrl: "https://github.com/VariableThe/Indomitus/tree/main/Q1%20-%20Cathode%20Ray%20Tube",
+    summary:
+      "An MP3 file that is actually an MP4 video underneath. Viewing its video frames reveals a frame of black and white pixels representing binary data.",
+    keyInsight:
+      "Reconstructing the binary stream from the video frame and decrypting it with FVID recovers an image reading 'basesixfour' and an EXIF comment 'NikxUBC{_Xh4n1T_}'. Decrypting via Vigenère cipher using key 'basesixfour' yields the flag MistCTF{_St4t1C_}.",
+    commands: [
+      "# 1. Rename .mp3 -> .mp4 and inspect video frame pixels (binary 0s and 1s)",
+      "# 2. Use FVID to recover hidden image -> displays 'basesixfour'",
+      "exiftool recovered_image.png | grep -i comment",
+      "# -> Comment : NikxUBC{_Xh4n1T_}",
+      "# 3. Vigenere decode 'NikxUBC{_Xh4n1T_}' with key 'basesixfour' -> MistCTF{_St4t1C_}",
+    ],
+  },
+  {
+    id: "thrist-for-information",
+    title: "A Thrist for Information",
+    authored: true,
+    ctf: "MistCTF",
+    category: "Forensics",
+    difficulty: "Hard",
+    tags: ["OSINT", "Library of Babel", "Social Media", "ASCII"],
+    repoName: "Indomitus",
+    githubUrl: "https://github.com/VariableThe/Indomitus/tree/main/Q2%20-%20A%20thrist%20for%20information",
+    summary:
+      "An OSINT/Forensics hunt starting from Discord and Twitter ('X') clues pointing to the Tower of Babel, leading directly into the virtual Library of Babel using a custom Hex bookmark name.",
+    keyInsight:
+      "Navigating the Library of Babel using Hex's bookmark name reveals the initial key text 'mistctfknowledge'. Further tracking another tweet's large number as an image archive index on the Library of Babel uncovers an image with ASCII coordinates, converting to MistCTF{kn0wleD3}.",
+    commands: [
+      "# 1. Follow OSINT trail from Discord/Twitter -> Library of Babel Hex bookmark",
+      "# 2. Extract page text -> mistctfknowledge",
+      "# 3. Convert large number clue to Library of Babel image archive index",
+      "# 4. Decode ASCII characters from image -> MistCTF{kn0wleD3}",
+    ],
+  },
+  {
+    id: "trip-to-italy",
+    title: "A Trip to Italy",
+    authored: true,
+    ctf: "MistCTF",
+    category: "Cryptography",
+    difficulty: "Medium",
+    tags: ["Audio Steganography", "LSB", "Reverse Engineering", "Custom Cipher"],
+    repoName: "Indomitus",
+    githubUrl: "https://github.com/VariableThe/Indomitus/tree/main/Q3%20-%20A%20Trip%20to%20Italy",
+    summary:
+      "A .wav audio file containing LSB steganography (wavesteg), paired with a hint about Italy's country code (+39) indicating the exact bit/byte length needed for extraction.",
+    keyInsight:
+      "Using wavesteg with 39 bytes extracts a URL containing a hidden Python encoder script in its HTML comments. The strange filename M¶)à4zõWÉý.}ñn.wav is actually the ciphertext; writing a decoder script to reverse the custom Python encoder recovers MistCTF{br41nrot}.",
+    commands: [
+      "# 1. Extract 39 bytes from audio LSB using wavesteg (Italy country code +39):",
+      "python3 wavesteg.py -r -s audio.wav -o link.txt -b 39",
+      "# -> Recovers website URL with encoder script in HTML comments",
+      "# 2. Reverse engineer encoder.py and run decoder on ciphertext filename 'M¶)à4zõWÉý.}ñn' -> MistCTF{br41nrot}",
+    ],
+  },
+  {
     id: "50-shades-of-network",
     title: "50 shades of network",
     authored: true,
