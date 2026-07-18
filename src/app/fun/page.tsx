@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Music2, ArrowRight, Flag } from "lucide-react";
+import { ArrowLeft, Music2, ArrowRight, Flag, Image } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // ─── Things to add here later ──────────────────────────────────────────────
@@ -22,6 +22,14 @@ interface Section {
 }
 
 const SECTIONS: Section[] = [
+  {
+    id: "wallpapers",
+    label: "Wallpapers",
+    desc: "A collection of high-quality wallpapers. Click any to edit and download.",
+    status: "live",
+    href: "/fun/wallpapers",
+    icon: <Image size={18} className="text-primary" />,
+  },
   {
     id: "music",
     label: "Music",
