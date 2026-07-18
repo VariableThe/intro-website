@@ -15,6 +15,7 @@ const NAV = [
 const EXTERNAL = [
   { label: "gallery.vrbl.win", href: "https://gallery.vrbl.win" },
   { label: "tools.vrbl.win", href: "https://tools.vrbl.win" },
+  { label: "Design Portfolio", href: "https://www.playbook.com/s/thevariable/ZWGdbCYHW9jRXLaSDKrBnDBM" },
 ];
 
 const SOCIALS = [
