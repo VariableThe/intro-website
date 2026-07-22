@@ -7,14 +7,9 @@ import type { MusicApiResponse, NormalizedAlbum, NormalizedArtist } from "@/lib/
 // ─── Lazy-import all dashboard components ─────────────────────────────────────
 // This keeps the initial bundle small and lets each section load independently.
 
-import { NowPlaying } from "./NowPlaying";
 import { TodaysPick } from "./TodaysPick";
 import { MusicStats } from "./MusicStats";
-import { RecentlyPlayed } from "./RecentlyPlayed";
-import { TopTracks } from "./TopTracks";
-import { TopArtists } from "./TopArtists";
 import { OnRepeat } from "./OnRepeat";
-import { LovedTracks } from "./LovedTracks";
 import { HighestRatedAlbums } from "./HighestRatedAlbums";
 import { MostLovedAlbums } from "./MostLovedAlbums";
 import { RecentlyAdded } from "./RecentlyAdded";
@@ -63,7 +58,7 @@ export function MusicDashboard({ response }: Props) {
           <p className="text-4xl mb-4">♪</p>
           <p>No music data available.</p>
           <p className="text-xs mt-2 text-foreground/20">
-            Add your Apple Music library.xml and set Spotify env vars to get started.
+            Add your Apple Music library.xml to get started.
           </p>
         </div>
       </div>
@@ -72,7 +67,6 @@ export function MusicDashboard({ response }: Props) {
 
   const { data, providers } = response;
 
-  const hasSpotify = providers.includes("spotify");
   const hasApple = providers.includes("appleXml");
 
   return (
@@ -89,7 +83,7 @@ export function MusicDashboard({ response }: Props) {
           </h1>
           <p className="text-foreground/50 text-base">
             What I&apos;ve been listening to, loving, and repeating.
-            {!hasSpotify && !hasApple && (
+            {!hasApple && (
               <span className="ml-2 text-primary">No data sources configured.</span>
             )}
           </p>
@@ -110,28 +104,6 @@ export function MusicDashboard({ response }: Props) {
           </Section>
         )}
 
-        {/* ── Now Playing ── */}
-        {hasSpotify && (
-          <Section>
-            <NowPlaying data={data.nowPlaying} />
-          </Section>
-        )}
-
-        {/* ── Recently Played ── */}
-        {hasSpotify && data.recentlyPlayed.length > 0 && (
-          <Section>
-            <RecentlyPlayed tracks={data.recentlyPlayed} />
-          </Section>
-        )}
-
-        {/* ── Top Tracks + Top Artists (two col on desktop) ── */}
-        {hasSpotify && (
-          <Section className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            <TopTracks topTracks={data.topTracks} />
-            <TopArtists topArtists={data.topArtists} onArtistClick={setSelectedArtist} />
-          </Section>
-        )}
-
         {/* ── On Repeat ── */}
         {hasApple && (data.onRepeatAllTime?.length > 0 || data.onRepeat.length > 0) && (
           <Section>
@@ -142,13 +114,10 @@ export function MusicDashboard({ response }: Props) {
           </Section>
         )}
 
-        {/* ── Loved Tracks + Highest Rated (two col) ── */}
-        {hasApple && (
-          <Section className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {data.lovedTracks.length > 0 && <LovedTracks tracks={data.lovedTracks} />}
-            {data.highestRatedAlbums.length > 0 && (
-              <HighestRatedAlbums albums={data.highestRatedAlbums} onAlbumClick={setSelectedAlbum} />
-            )}
+        {/* ── Highest Rated Albums ── */}
+        {hasApple && data.highestRatedAlbums.length > 0 && (
+          <Section>
+            <HighestRatedAlbums albums={data.highestRatedAlbums} onAlbumClick={setSelectedAlbum} />
           </Section>
         )}
 
@@ -217,15 +186,7 @@ export function MusicDashboard({ response }: Props) {
           viewport={{ once: true }}
           className="text-center text-foreground/20 font-mono text-xs pt-8 border-t border-border"
         >
-          Data from{" "}
-          {providers.map((p, i) => (
-            <span key={p}>
-              {p === "spotify" ? "Spotify" : "Apple Music Library"}
-              {i < providers.length - 1 ? " + " : ""}
-            </span>
-          ))}
-          {" · "}
-          Cached every 20 minutes
+          Data from Apple Music Library · Cached every 20 minutes
         </motion.p>
       </div>
 
