@@ -1,0 +1,1969 @@
+{
+  "stats" : [ {
+    "date" : "2026-07-13",
+    "streamCount" : 0,
+    "secondsPlayed" : 9227,
+    "topTracks" : [ {
+      "name" : "Red on the Run",
+      "streamCount" : 11,
+      "secondsPlayed" : 1466
+    }, {
+      "name" : "Three years of youth overflowing",
+      "streamCount" : 4,
+      "secondsPlayed" : 399
+    }, {
+      "name" : "Ripple",
+      "streamCount" : 3,
+      "secondsPlayed" : 415
+    }, {
+      "name" : "Disaster",
+      "streamCount" : 3,
+      "secondsPlayed" : 285
+    }, {
+      "name" : "伏黒甚爾",
+      "streamCount" : 2,
+      "secondsPlayed" : 144
+    }, {
+      "name" : "Execution",
+      "streamCount" : 2,
+      "secondsPlayed" : 182
+    }, {
+      "name" : "I Think I Left the Stove On",
+      "streamCount" : 1,
+      "secondsPlayed" : 202
+    }, {
+      "name" : "The Search For The Cursed Spirit",
+      "streamCount" : 1,
+      "secondsPlayed" : 143
+    }, {
+      "name" : "Our Mission",
+      "streamCount" : 1,
+      "secondsPlayed" : 135
+    }, {
+      "name" : "Elegant Time",
+      "streamCount" : 1,
+      "secondsPlayed" : 128
+    } ],
+    "topArtists" : [ {
+      "name" : "照井順政",
+      "streamCount" : 27,
+      "secondsPlayed" : 2778
+    }, {
+      "name" : "Heitor Pereira",
+      "streamCount" : 14,
+      "secondsPlayed" : 1805
+    }, {
+      "name" : "Joji",
+      "streamCount" : 10,
+      "secondsPlayed" : 1624
+    }, {
+      "name" : "Anuv Jain",
+      "streamCount" : 2,
+      "secondsPlayed" : 512
+    }, {
+      "name" : "Lady Gaga",
+      "streamCount" : 2,
+      "secondsPlayed" : 333
+    }, {
+      "name" : "Katy Perry",
+      "streamCount" : 1,
+      "secondsPlayed" : 227
+    }, {
+      "name" : "Far East Movement",
+      "streamCount" : 1,
+      "secondsPlayed" : 211
+    }, {
+      "name" : "Afusic",
+      "streamCount" : 1,
+      "secondsPlayed" : 208
+    }, {
+      "name" : "Hotel Ugly",
+      "streamCount" : 1,
+      "secondsPlayed" : 202
+    }, {
+      "name" : "Yeat",
+      "streamCount" : 1,
+      "secondsPlayed" : 193
+    } ],
+    "topGenres" : [ ]
+  }, {
+    "date" : "2026-07-06",
+    "streamCount" : 0,
+    "secondsPlayed" : 3351,
+    "topTracks" : [ {
+      "name" : "Delirious",
+      "streamCount" : 3,
+      "secondsPlayed" : 403
+    }, {
+      "name" : "Stress Relief",
+      "streamCount" : 2,
+      "secondsPlayed" : 411
+    }, {
+      "name" : "Sahiba",
+      "streamCount" : 2,
+      "secondsPlayed" : 380
+    }, {
+      "name" : "Rakhlo Tum Chupaake",
+      "streamCount" : 1,
+      "secondsPlayed" : 195
+    }, {
+      "name" : "怪物",
+      "streamCount" : 1,
+      "secondsPlayed" : 176
+    }, {
+      "name" : "Is This Really Love?",
+      "streamCount" : 1,
+      "secondsPlayed" : 57
+    }, {
+      "name" : "Arz Kiya Hai | Coke Studio Bharat",
+      "streamCount" : 1,
+      "secondsPlayed" : 294
+    }, {
+      "name" : "Pal Pal",
+      "streamCount" : 1,
+      "secondsPlayed" : 274
+    }, {
+      "name" : "Judas",
+      "streamCount" : 1,
+      "secondsPlayed" : 249
+    }, {
+      "name" : "Finding Her",
+      "streamCount" : 1,
+      "secondsPlayed" : 207
+    } ],
+    "topArtists" : [ {
+      "name" : "Aditya Rikhari",
+      "streamCount" : 4,
+      "secondsPlayed" : 587
+    }, {
+      "name" : "照井順政",
+      "streamCount" : 3,
+      "secondsPlayed" : 403
+    }, {
+      "name" : "late night drive home",
+      "streamCount" : 2,
+      "secondsPlayed" : 411
+    }, {
+      "name" : "Anuv Jain",
+      "streamCount" : 1,
+      "secondsPlayed" : 294
+    }, {
+      "name" : "Afusic",
+      "streamCount" : 1,
+      "secondsPlayed" : 274
+    }, {
+      "name" : "Lady Gaga",
+      "streamCount" : 1,
+      "secondsPlayed" : 249
+    }, {
+      "name" : "Kushagra",
+      "streamCount" : 1,
+      "secondsPlayed" : 207
+    }, {
+      "name" : "Arpit Bala",
+      "streamCount" : 1,
+      "secondsPlayed" : 195
+    }, {
+      "name" : "Shashwat Sachdev",
+      "streamCount" : 1,
+      "secondsPlayed" : 180
+    }, {
+      "name" : "YOASOBI",
+      "streamCount" : 1,
+      "secondsPlayed" : 176
+    } ],
+    "topGenres" : [ ]
+  }, {
+    "date" : "2026-06-29",
+    "streamCount" : 0,
+    "secondsPlayed" : 3208,
+    "topTracks" : [ {
+      "name" : "Stress Relief",
+      "streamCount" : 5,
+      "secondsPlayed" : 1025
+    }, {
+      "name" : "Delirious",
+      "streamCount" : 4,
+      "secondsPlayed" : 451
+    }, {
+      "name" : "怪物",
+      "streamCount" : 3,
+      "secondsPlayed" : 428
+    }, {
+      "name" : "Is This Really Love?",
+      "streamCount" : 2,
+      "secondsPlayed" : 228
+    }, {
+      "name" : "FTC",
+      "streamCount" : 2,
+      "secondsPlayed" : 156
+    }, {
+      "name" : "Kill The Geese",
+      "streamCount" : 1,
+      "secondsPlayed" : 118
+    }, {
+      "name" : "skin cells",
+      "streamCount" : 1,
+      "secondsPlayed" : 105
+    }, {
+      "name" : "in the pool",
+      "streamCount" : 1,
+      "secondsPlayed" : 245
+    }, {
+      "name" : "Sahiba",
+      "streamCount" : 1,
+      "secondsPlayed" : 190
+    }, {
+      "name" : "Redeeming Qualities (with Corbin)",
+      "streamCount" : 1,
+      "secondsPlayed" : 181
+    } ],
+    "topArtists" : [ {
+      "name" : "late night drive home",
+      "streamCount" : 5,
+      "secondsPlayed" : 1025
+    }, {
+      "name" : "Joji",
+      "streamCount" : 5,
+      "secondsPlayed" : 561
+    }, {
+      "name" : "照井順政",
+      "streamCount" : 4,
+      "secondsPlayed" : 451
+    }, {
+      "name" : "YOASOBI",
+      "streamCount" : 3,
+      "secondsPlayed" : 428
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 2,
+      "secondsPlayed" : 228
+    }, {
+      "name" : "kensuke ushio",
+      "streamCount" : 1,
+      "secondsPlayed" : 245
+    }, {
+      "name" : "Aditya Rikhari",
+      "streamCount" : 1,
+      "secondsPlayed" : 190
+    }, {
+      "name" : "Corbin",
+      "streamCount" : 1,
+      "secondsPlayed" : 181
+    } ],
+    "topGenres" : [ ]
+  }, {
+    "date" : "2026-06-22",
+    "streamCount" : 0,
+    "secondsPlayed" : 5526,
+    "topTracks" : [ {
+      "name" : "怪物",
+      "streamCount" : 4,
+      "secondsPlayed" : 764
+    }, {
+      "name" : "Is This Really Love?",
+      "streamCount" : 4,
+      "secondsPlayed" : 650
+    }, {
+      "name" : "Kill The Geese",
+      "streamCount" : 3,
+      "secondsPlayed" : 355
+    }, {
+      "name" : "FTC",
+      "streamCount" : 3,
+      "secondsPlayed" : 347
+    }, {
+      "name" : "Stress Relief",
+      "streamCount" : 3,
+      "secondsPlayed" : 617
+    }, {
+      "name" : "Redeeming Qualities (with Corbin)",
+      "streamCount" : 2,
+      "secondsPlayed" : 412
+    }, {
+      "name" : "Back Home",
+      "streamCount" : 2,
+      "secondsPlayed" : 223
+    }, {
+      "name" : "skin cells",
+      "streamCount" : 2,
+      "secondsPlayed" : 210
+    }, {
+      "name" : "Ishq Bulaava",
+      "streamCount" : 1,
+      "secondsPlayed" : 303
+    }, {
+      "name" : "SAME LA",
+      "streamCount" : 1,
+      "secondsPlayed" : 224
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 16,
+      "secondsPlayed" : 2140
+    }, {
+      "name" : "YOASOBI",
+      "streamCount" : 4,
+      "secondsPlayed" : 764
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 4,
+      "secondsPlayed" : 650
+    }, {
+      "name" : "late night drive home",
+      "streamCount" : 3,
+      "secondsPlayed" : 617
+    }, {
+      "name" : "Oliver Tree",
+      "streamCount" : 2,
+      "secondsPlayed" : 377
+    }, {
+      "name" : "Tiffany Day",
+      "streamCount" : 2,
+      "secondsPlayed" : 325
+    }, {
+      "name" : "Yeat",
+      "streamCount" : 2,
+      "secondsPlayed" : 223
+    }, {
+      "name" : "Corbin",
+      "streamCount" : 2,
+      "secondsPlayed" : 412
+    }, {
+      "name" : "Vishal-Shekhar",
+      "streamCount" : 1,
+      "secondsPlayed" : 303
+    }, {
+      "name" : "Anyma",
+      "streamCount" : 1,
+      "secondsPlayed" : 215
+    } ],
+    "topGenres" : [ ]
+  }, {
+    "date" : "2026-06-15",
+    "streamCount" : 0,
+    "secondsPlayed" : 5304,
+    "topTracks" : [ {
+      "name" : "Blah Blah",
+      "streamCount" : 8,
+      "secondsPlayed" : 1296
+    }, {
+      "name" : "All The Things She Said",
+      "streamCount" : 3,
+      "secondsPlayed" : 496
+    }, {
+      "name" : "Tom Tom - Flaxans Version",
+      "streamCount" : 3,
+      "secondsPlayed" : 372
+    }, {
+      "name" : "DYKILY (2017 Demo Version)",
+      "streamCount" : 3,
+      "secondsPlayed" : 175
+    }, {
+      "name" : "Chicago",
+      "streamCount" : 2,
+      "secondsPlayed" : 491
+    }, {
+      "name" : "Ishq Bulaava",
+      "streamCount" : 1,
+      "secondsPlayed" : 303
+    }, {
+      "name" : "Roommates",
+      "streamCount" : 1,
+      "secondsPlayed" : 214
+    }, {
+      "name" : "Beautiful (with Joji)",
+      "streamCount" : 1,
+      "secondsPlayed" : 73
+    }, {
+      "name" : "SAME LA",
+      "streamCount" : 1,
+      "secondsPlayed" : 62
+    }, {
+      "name" : "Arrogance",
+      "streamCount" : 1,
+      "secondsPlayed" : 44
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 16,
+      "secondsPlayed" : 1976
+    }, {
+      "name" : "Kenshi Yonezu",
+      "streamCount" : 3,
+      "secondsPlayed" : 578
+    }, {
+      "name" : "t.A.T.u.",
+      "streamCount" : 3,
+      "secondsPlayed" : 496
+    }, {
+      "name" : "Holy Fuck",
+      "streamCount" : 3,
+      "secondsPlayed" : 372
+    }, {
+      "name" : "Michael Jackson",
+      "streamCount" : 2,
+      "secondsPlayed" : 491
+    }, {
+      "name" : "Malcolm Todd",
+      "streamCount" : 2,
+      "secondsPlayed" : 403
+    }, {
+      "name" : "Vishal-Shekhar",
+      "streamCount" : 1,
+      "secondsPlayed" : 303
+    }, {
+      "name" : "YOASOBI",
+      "streamCount" : 1,
+      "secondsPlayed" : 205
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 1,
+      "secondsPlayed" : 195
+    }, {
+      "name" : "Anyma",
+      "streamCount" : 1,
+      "secondsPlayed" : 73
+    } ],
+    "topGenres" : [ ]
+  }, {
+    "date" : "2026-06",
+    "streamCount" : 244,
+    "secondsPlayed" : 41473,
+    "topTracks" : [ {
+      "name" : "Thinking Bout You",
+      "streamCount" : 15,
+      "secondsPlayed" : 2756
+    }, {
+      "name" : "Roommates",
+      "streamCount" : 14,
+      "secondsPlayed" : 2763
+    }, {
+      "name" : "SAME LA",
+      "streamCount" : 14,
+      "secondsPlayed" : 2640
+    }, {
+      "name" : "Tom Tom - Flaxans Version",
+      "streamCount" : 14,
+      "secondsPlayed" : 2297
+    }, {
+      "name" : "Chicago",
+      "streamCount" : 11,
+      "secondsPlayed" : 2354
+    }, {
+      "name" : "EVERYTHING I'VE EVER WANTED",
+      "streamCount" : 11,
+      "secondsPlayed" : 1255
+    }, {
+      "name" : "Blah Blah",
+      "streamCount" : 10,
+      "secondsPlayed" : 1507
+    }, {
+      "name" : "Arrogance",
+      "streamCount" : 9,
+      "secondsPlayed" : 974
+    }, {
+      "name" : "Ishq Bulaava",
+      "streamCount" : 7,
+      "secondsPlayed" : 2121
+    }, {
+      "name" : "meaningful love - instrumental",
+      "streamCount" : 7,
+      "secondsPlayed" : 1510
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 79,
+      "secondsPlayed" : 10939
+    }, {
+      "name" : "Tiffany Day",
+      "streamCount" : 25,
+      "secondsPlayed" : 3895
+    }, {
+      "name" : "Malcolm Todd",
+      "streamCount" : 16,
+      "secondsPlayed" : 3103
+    }, {
+      "name" : "rei brown",
+      "streamCount" : 15,
+      "secondsPlayed" : 2756
+    }, {
+      "name" : "Holy Fuck",
+      "streamCount" : 14,
+      "secondsPlayed" : 2297
+    }, {
+      "name" : "Michael Jackson",
+      "streamCount" : 11,
+      "secondsPlayed" : 2354
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 11,
+      "secondsPlayed" : 2234
+    }, {
+      "name" : "ç…§äº•é †æ”¿",
+      "streamCount" : 9,
+      "secondsPlayed" : 974
+    }, {
+      "name" : "late night drive home",
+      "streamCount" : 8,
+      "secondsPlayed" : 1538
+    }, {
+      "name" : "Vishal-Shekhar",
+      "streamCount" : 7,
+      "secondsPlayed" : 2121
+    } ],
+    "topGenres" : [ ],
+    "timeOfDayStats" : [ ]
+  }, {
+    "date" : "2026-05",
+    "streamCount" : 208,
+    "secondsPlayed" : 32199,
+    "topTracks" : [ {
+      "name" : "Roommates",
+      "streamCount" : 13,
+      "secondsPlayed" : 2176
+    }, {
+      "name" : "SAME LA",
+      "streamCount" : 9,
+      "secondsPlayed" : 2017
+    }, {
+      "name" : "EVERYTHING I'VE EVER WANTED",
+      "streamCount" : 8,
+      "secondsPlayed" : 981
+    }, {
+      "name" : "meaningful love - instrumental",
+      "streamCount" : 6,
+      "secondsPlayed" : 1131
+    }, {
+      "name" : "Breathe",
+      "streamCount" : 6,
+      "secondsPlayed" : 655
+    }, {
+      "name" : "Thinking Bout You",
+      "streamCount" : 5,
+      "secondsPlayed" : 952
+    }, {
+      "name" : "Arrogance",
+      "streamCount" : 5,
+      "secondsPlayed" : 705
+    }, {
+      "name" : "Strange Home",
+      "streamCount" : 5,
+      "secondsPlayed" : 666
+    }, {
+      "name" : "Hotel California",
+      "streamCount" : 5,
+      "secondsPlayed" : 640
+    }, {
+      "name" : "Dior",
+      "streamCount" : 5,
+      "secondsPlayed" : 503
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 109,
+      "secondsPlayed" : 14326
+    }, {
+      "name" : "Tiffany Day",
+      "streamCount" : 17,
+      "secondsPlayed" : 2998
+    }, {
+      "name" : "Malcolm Todd",
+      "streamCount" : 14,
+      "secondsPlayed" : 2377
+    }, {
+      "name" : "Silo",
+      "streamCount" : 6,
+      "secondsPlayed" : 1131
+    }, {
+      "name" : "照井順政",
+      "streamCount" : 6,
+      "secondsPlayed" : 752
+    }, {
+      "name" : "88rising",
+      "streamCount" : 6,
+      "secondsPlayed" : 655
+    }, {
+      "name" : "rei brown",
+      "streamCount" : 5,
+      "secondsPlayed" : 952
+    }, {
+      "name" : "ç…§äº•é †æ”¿",
+      "streamCount" : 5,
+      "secondsPlayed" : 636
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 4,
+      "secondsPlayed" : 956
+    }, {
+      "name" : "Yeat",
+      "streamCount" : 6,
+      "secondsPlayed" : 954
+    } ],
+    "topGenres" : [ ],
+    "timeOfDayStats" : [ ]
+  }, {
+    "date" : "2026-04",
+    "streamCount" : 210,
+    "secondsPlayed" : 33939,
+    "topTracks" : [ {
+      "name" : "SAME LA",
+      "streamCount" : 18,
+      "secondsPlayed" : 3751
+    }, {
+      "name" : "Thinking Bout You",
+      "streamCount" : 14,
+      "secondsPlayed" : 2223
+    }, {
+      "name" : "EVERYTHING I'VE EVER WANTED",
+      "streamCount" : 14,
+      "secondsPlayed" : 1890
+    }, {
+      "name" : "Arrogance",
+      "streamCount" : 11,
+      "secondsPlayed" : 1519
+    }, {
+      "name" : "Breathe",
+      "streamCount" : 10,
+      "secondsPlayed" : 1234
+    }, {
+      "name" : "My House Is Not A Home",
+      "streamCount" : 9,
+      "secondsPlayed" : 2009
+    }, {
+      "name" : "meaningful love - instrumental",
+      "streamCount" : 4,
+      "secondsPlayed" : 901
+    }, {
+      "name" : "Beautiful (with Joji)",
+      "streamCount" : 4,
+      "secondsPlayed" : 861
+    }, {
+      "name" : "AIZO",
+      "streamCount" : 4,
+      "secondsPlayed" : 850
+    }, {
+      "name" : "Easier If We Fly",
+      "streamCount" : 4,
+      "secondsPlayed" : 638
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 74,
+      "secondsPlayed" : 10658
+    }, {
+      "name" : "Tiffany Day",
+      "streamCount" : 47,
+      "secondsPlayed" : 8026
+    }, {
+      "name" : "rei brown",
+      "streamCount" : 16,
+      "secondsPlayed" : 2373
+    }, {
+      "name" : "照井順政",
+      "streamCount" : 11,
+      "secondsPlayed" : 1519
+    }, {
+      "name" : "88rising",
+      "streamCount" : 10,
+      "secondsPlayed" : 1234
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 9,
+      "secondsPlayed" : 2009
+    }, {
+      "name" : "Silo",
+      "streamCount" : 7,
+      "secondsPlayed" : 1557
+    }, {
+      "name" : "Tame Impala",
+      "streamCount" : 6,
+      "secondsPlayed" : 1156
+    }, {
+      "name" : "Kanye West",
+      "streamCount" : 6,
+      "secondsPlayed" : 910
+    }, {
+      "name" : "Anyma",
+      "streamCount" : 4,
+      "secondsPlayed" : 861
+    } ],
+    "topGenres" : [ ],
+    "timeOfDayStats" : [ ]
+  }, {
+    "date" : "2026-03",
+    "streamCount" : 331,
+    "secondsPlayed" : 54316,
+    "topTracks" : [ {
+      "name" : "Jaiye Sajana",
+      "streamCount" : 22,
+      "secondsPlayed" : 3777
+    }, {
+      "name" : "Breathe",
+      "streamCount" : 21,
+      "secondsPlayed" : 2498
+    }, {
+      "name" : "Pyari Amaanat",
+      "streamCount" : 14,
+      "secondsPlayed" : 2429
+    }, {
+      "name" : "My House Is Not A Home",
+      "streamCount" : 10,
+      "secondsPlayed" : 2242
+    }, {
+      "name" : "AIZO",
+      "streamCount" : 9,
+      "secondsPlayed" : 1647
+    }, {
+      "name" : "Easier If We Fly",
+      "streamCount" : 9,
+      "secondsPlayed" : 1494
+    }, {
+      "name" : "meaningful love - instrumental",
+      "streamCount" : 8,
+      "secondsPlayed" : 2328
+    }, {
+      "name" : "TOO LATE FOR YOU",
+      "streamCount" : 7,
+      "secondsPlayed" : 1262
+    }, {
+      "name" : "Fade to Black (with 4batz)",
+      "streamCount" : 7,
+      "secondsPlayed" : 527
+    }, {
+      "name" : "Phir Se",
+      "streamCount" : 6,
+      "secondsPlayed" : 2124
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 159,
+      "secondsPlayed" : 22711
+    }, {
+      "name" : "Shashwat Sachdev",
+      "streamCount" : 34,
+      "secondsPlayed" : 6995
+    }, {
+      "name" : "88rising",
+      "streamCount" : 21,
+      "secondsPlayed" : 2498
+    }, {
+      "name" : "Arpit Bala",
+      "streamCount" : 16,
+      "secondsPlayed" : 2706
+    }, {
+      "name" : "alan vuong",
+      "streamCount" : 13,
+      "secondsPlayed" : 2162
+    }, {
+      "name" : "Andrew Arcadi",
+      "streamCount" : 13,
+      "secondsPlayed" : 1941
+    }, {
+      "name" : "Jasmine Sandlas",
+      "streamCount" : 25,
+      "secondsPlayed" : 4436
+    }, {
+      "name" : "d4vd",
+      "streamCount" : 10,
+      "secondsPlayed" : 2242
+    }, {
+      "name" : "King Gnu",
+      "streamCount" : 10,
+      "secondsPlayed" : 1885
+    }, {
+      "name" : "Silo",
+      "streamCount" : 8,
+      "secondsPlayed" : 2328
+    } ],
+    "topGenres" : [ ],
+    "timeOfDayStats" : [ ]
+  }, {
+    "date" : "2026-02",
+    "streamCount" : 205,
+    "secondsPlayed" : 28766,
+    "topTracks" : [ {
+      "name" : "Rose Colored (with Yeat)",
+      "streamCount" : 11,
+      "secondsPlayed" : 1583
+    }, {
+      "name" : "SPECIALZ",
+      "streamCount" : 6,
+      "secondsPlayed" : 1430
+    }, {
+      "name" : "If It Only Gets Better",
+      "streamCount" : 6,
+      "secondsPlayed" : 377
+    }, {
+      "name" : "LOVE YOU LESS",
+      "streamCount" : 5,
+      "secondsPlayed" : 1005
+    }, {
+      "name" : "Past Won't Leave My Bed",
+      "streamCount" : 5,
+      "secondsPlayed" : 830
+    }, {
+      "name" : "Diddy Heil Epstein",
+      "streamCount" : 5,
+      "secondsPlayed" : 784
+    }, {
+      "name" : "PIXELATED KISSES",
+      "streamCount" : 5,
+      "secondsPlayed" : 550
+    }, {
+      "name" : "Cigarette",
+      "streamCount" : 5,
+      "secondsPlayed" : 507
+    }, {
+      "name" : "Love Me Better",
+      "streamCount" : 5,
+      "secondsPlayed" : 460
+    }, {
+      "name" : "I Really Hate When People Play Golem (speed up)",
+      "streamCount" : 5,
+      "secondsPlayed" : 289
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 100,
+      "secondsPlayed" : 12846
+    }, {
+      "name" : "HaVexy",
+      "streamCount" : 12,
+      "secondsPlayed" : 1189
+    }, {
+      "name" : "King Gnu",
+      "streamCount" : 9,
+      "secondsPlayed" : 1897
+    }, {
+      "name" : "Don Toliver",
+      "streamCount" : 8,
+      "secondsPlayed" : 1227
+    }, {
+      "name" : "alan vuong",
+      "streamCount" : 6,
+      "secondsPlayed" : 1061
+    }, {
+      "name" : "som.",
+      "streamCount" : 6,
+      "secondsPlayed" : 924
+    }, {
+      "name" : "Aries",
+      "streamCount" : 6,
+      "secondsPlayed" : 640
+    }, {
+      "name" : "Yeat",
+      "streamCount" : 11,
+      "secondsPlayed" : 1583
+    }, {
+      "name" : "Arpit Bala",
+      "streamCount" : 5,
+      "secondsPlayed" : 855
+    }, {
+      "name" : "Donn Bhat",
+      "streamCount" : 4,
+      "secondsPlayed" : 785
+    } ],
+    "topGenres" : [ ],
+    "timeOfDayStats" : [ {
+      "period" : "late_evening",
+      "secondsPlayed" : 3264
+    }, {
+      "period" : "afternoon",
+      "secondsPlayed" : 7883
+    }, {
+      "period" : "morning",
+      "secondsPlayed" : 3945
+    }, {
+      "period" : "evening",
+      "secondsPlayed" : 9701
+    }, {
+      "period" : "early_morning",
+      "secondsPlayed" : 114
+    }, {
+      "period" : "night",
+      "secondsPlayed" : 765
+    } ]
+  }, {
+    "date" : "2026-01",
+    "streamCount" : 150,
+    "secondsPlayed" : 24686,
+    "topTracks" : [ {
+      "name" : "Rakhlo Tum Chupaake",
+      "streamCount" : 13,
+      "secondsPlayed" : 2603
+    }, {
+      "name" : "Banda Kaam Ka",
+      "streamCount" : 7,
+      "secondsPlayed" : 1736
+    }, {
+      "name" : "HASEENA.",
+      "streamCount" : 5,
+      "secondsPlayed" : 599
+    }, {
+      "name" : "apsara.",
+      "streamCount" : 5,
+      "secondsPlayed" : 892
+    }, {
+      "name" : "Thehra",
+      "streamCount" : 5,
+      "secondsPlayed" : 710
+    }, {
+      "name" : "PIXELATED KISSES",
+      "streamCount" : 5,
+      "secondsPlayed" : 528
+    }, {
+      "name" : "WDTBU",
+      "streamCount" : 4,
+      "secondsPlayed" : 720
+    }, {
+      "name" : "I Really Hate When People Play Golem (speed up)",
+      "streamCount" : 4,
+      "secondsPlayed" : 220
+    }, {
+      "name" : "Jab Se Piya",
+      "streamCount" : 4,
+      "secondsPlayed" : 556
+    }, {
+      "name" : "No One Noticed",
+      "streamCount" : 3,
+      "secondsPlayed" : 495
+    } ],
+    "topArtists" : [ {
+      "name" : "Arpit Bala",
+      "streamCount" : 15,
+      "secondsPlayed" : 2926
+    }, {
+      "name" : "Chaar Diwaari",
+      "streamCount" : 12,
+      "secondsPlayed" : 2446
+    }, {
+      "name" : "som.",
+      "streamCount" : 12,
+      "secondsPlayed" : 1743
+    }, {
+      "name" : "Hemang",
+      "streamCount" : 9,
+      "secondsPlayed" : 1379
+    }, {
+      "name" : "Joji",
+      "streamCount" : 9,
+      "secondsPlayed" : 1307
+    }, {
+      "name" : "HaVexy",
+      "streamCount" : 7,
+      "secondsPlayed" : 578
+    }, {
+      "name" : "Adil",
+      "streamCount" : 13,
+      "secondsPlayed" : 2603
+    }, {
+      "name" : "Karma",
+      "streamCount" : 6,
+      "secondsPlayed" : 935
+    }, {
+      "name" : "Mitski",
+      "streamCount" : 5,
+      "secondsPlayed" : 1075
+    }, {
+      "name" : "Lorien Testard",
+      "streamCount" : 4,
+      "secondsPlayed" : 648
+    } ],
+    "topGenres" : [ {
+      "name" : "indie",
+      "streamCount" : 27,
+      "secondsPlayed" : 8162
+    }, {
+      "name" : "indie pop",
+      "streamCount" : 18,
+      "secondsPlayed" : 5315
+    }, {
+      "name" : "hindi pop",
+      "streamCount" : 12,
+      "secondsPlayed" : 5002
+    }, {
+      "name" : "desi hip hop",
+      "streamCount" : 17,
+      "secondsPlayed" : 3868
+    }, {
+      "name" : "rap",
+      "streamCount" : 13,
+      "secondsPlayed" : 3077
+    }, {
+      "name" : "desi pop",
+      "streamCount" : 6,
+      "secondsPlayed" : 1270
+    }, {
+      "name" : "hardcore hip hop",
+      "streamCount" : 6,
+      "secondsPlayed" : 1146
+    }, {
+      "name" : "hip hop",
+      "streamCount" : 6,
+      "secondsPlayed" : 1146
+    }, {
+      "name" : "chill pop",
+      "streamCount" : 5,
+      "secondsPlayed" : 883
+    }, {
+      "name" : "bedroom pop",
+      "streamCount" : 5,
+      "secondsPlayed" : 792
+    } ],
+    "timeOfDayStats" : [ {
+      "period" : "late_evening",
+      "secondsPlayed" : 1834
+    }, {
+      "period" : "afternoon",
+      "secondsPlayed" : 8523
+    }, {
+      "period" : "morning",
+      "secondsPlayed" : 1554
+    }, {
+      "period" : "evening",
+      "secondsPlayed" : 6741
+    }, {
+      "period" : "early_morning",
+      "secondsPlayed" : 5293
+    }, {
+      "period" : "night",
+      "secondsPlayed" : 733
+    } ]
+  }, {
+    "date" : "2025-12",
+    "streamCount" : 156,
+    "secondsPlayed" : 27978,
+    "topTracks" : [ {
+      "name" : "No One Noticed",
+      "streamCount" : 3,
+      "secondsPlayed" : 708
+    }, {
+      "name" : "First Love/Late Spring",
+      "streamCount" : 3,
+      "secondsPlayed" : 701
+    }, {
+      "name" : "Lovers Rock",
+      "streamCount" : 2,
+      "secondsPlayed" : 426
+    }, {
+      "name" : "Losing My Mind",
+      "streamCount" : 2,
+      "secondsPlayed" : 424
+    }, {
+      "name" : "Duvet",
+      "streamCount" : 2,
+      "secondsPlayed" : 406
+    }, {
+      "name" : "Dangerously",
+      "streamCount" : 2,
+      "secondsPlayed" : 398
+    }, {
+      "name" : "One Call Away",
+      "streamCount" : 2,
+      "secondsPlayed" : 388
+    }, {
+      "name" : "Usseewa",
+      "streamCount" : 2,
+      "secondsPlayed" : 382
+    }, {
+      "name" : "Marvin Gaye (feat. Meghan Trainor)",
+      "streamCount" : 2,
+      "secondsPlayed" : 380
+    }, {
+      "name" : "I'll Never Smile Again",
+      "streamCount" : 2,
+      "secondsPlayed" : 378
+    } ],
+    "topArtists" : [ {
+      "name" : "Charlie Puth",
+      "streamCount" : 13,
+      "secondsPlayed" : 2419
+    }, {
+      "name" : "Mitski",
+      "streamCount" : 11,
+      "secondsPlayed" : 2032
+    }, {
+      "name" : "TV Girl",
+      "streamCount" : 5,
+      "secondsPlayed" : 988
+    }, {
+      "name" : "beabadoobee",
+      "streamCount" : 5,
+      "secondsPlayed" : 869
+    }, {
+      "name" : "Ichiko Aoba",
+      "streamCount" : 5,
+      "secondsPlayed" : 726
+    }, {
+      "name" : "Adrianne Lenker",
+      "streamCount" : 4,
+      "secondsPlayed" : 945
+    }, {
+      "name" : "Ado",
+      "streamCount" : 4,
+      "secondsPlayed" : 728
+    }, {
+      "name" : "Current Joys",
+      "streamCount" : 4,
+      "secondsPlayed" : 654
+    }, {
+      "name" : "The Smiths",
+      "streamCount" : 4,
+      "secondsPlayed" : 622
+    }, {
+      "name" : "Sushi Soucy",
+      "streamCount" : 4,
+      "secondsPlayed" : 364
+    } ],
+    "topGenres" : [ {
+      "name" : "indie",
+      "streamCount" : 19,
+      "secondsPlayed" : 4159
+    }, {
+      "name" : "pop",
+      "streamCount" : 22,
+      "secondsPlayed" : 3946
+    }, {
+      "name" : "american pop",
+      "streamCount" : 13,
+      "secondsPlayed" : 2237
+    }, {
+      "name" : "bedroom pop",
+      "streamCount" : 10,
+      "secondsPlayed" : 1938
+    }, {
+      "name" : "lo-fi indie",
+      "streamCount" : 8,
+      "secondsPlayed" : 1820
+    }, {
+      "name" : "rock",
+      "streamCount" : 6,
+      "secondsPlayed" : 1597
+    }, {
+      "name" : "indie pop",
+      "streamCount" : 7,
+      "secondsPlayed" : 1343
+    }, {
+      "name" : "j-pop",
+      "streamCount" : 5,
+      "secondsPlayed" : 1261
+    }, {
+      "name" : "teen pop",
+      "streamCount" : 7,
+      "secondsPlayed" : 1231
+    }, {
+      "name" : "alternative rock",
+      "streamCount" : 4,
+      "secondsPlayed" : 1002
+    } ],
+    "timeOfDayStats" : [ {
+      "period" : "late_evening",
+      "secondsPlayed" : 5417
+    }, {
+      "period" : "afternoon",
+      "secondsPlayed" : 5726
+    }, {
+      "period" : "morning",
+      "secondsPlayed" : 1350
+    }, {
+      "period" : "evening",
+      "secondsPlayed" : 15022
+    }, {
+      "period" : "night",
+      "secondsPlayed" : 265
+    } ]
+  }, {
+    "date" : "2025-11",
+    "streamCount" : 501,
+    "secondsPlayed" : 85426,
+    "topTracks" : [ {
+      "name" : "Synchronize - RAC Mix",
+      "streamCount" : 12,
+      "secondsPlayed" : 1722
+    }, {
+      "name" : "AEAO",
+      "streamCount" : 9,
+      "secondsPlayed" : 2292
+    }, {
+      "name" : "Past Won't Leave My Bed",
+      "streamCount" : 9,
+      "secondsPlayed" : 1594
+    }, {
+      "name" : "COME THRU",
+      "streamCount" : 7,
+      "secondsPlayed" : 846
+    }, {
+      "name" : "If It Only Gets Better",
+      "streamCount" : 7,
+      "secondsPlayed" : 439
+    }, {
+      "name" : "I Think I Left the Stove On",
+      "streamCount" : 6,
+      "secondsPlayed" : 930
+    }, {
+      "name" : "F1",
+      "streamCount" : 6,
+      "secondsPlayed" : 1027
+    }, {
+      "name" : "Mona Lisa",
+      "streamCount" : 5,
+      "secondsPlayed" : 844
+    }, {
+      "name" : "Forever",
+      "streamCount" : 5,
+      "secondsPlayed" : 691
+    }, {
+      "name" : "Ambarsariya",
+      "streamCount" : 5,
+      "secondsPlayed" : 1112
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 44,
+      "secondsPlayed" : 5896
+    }, {
+      "name" : "Milky Chance",
+      "streamCount" : 15,
+      "secondsPlayed" : 2356
+    }, {
+      "name" : "kensuke ushio",
+      "streamCount" : 11,
+      "secondsPlayed" : 1314
+    }, {
+      "name" : "Dynamicduo",
+      "streamCount" : 9,
+      "secondsPlayed" : 2292
+    }, {
+      "name" : "JVKE",
+      "streamCount" : 9,
+      "secondsPlayed" : 1497
+    }, {
+      "name" : "Kenshi Yonezu",
+      "streamCount" : 8,
+      "secondsPlayed" : 1667
+    }, {
+      "name" : "Marshmello",
+      "streamCount" : 8,
+      "secondsPlayed" : 1503
+    }, {
+      "name" : "Hans Zimmer",
+      "streamCount" : 7,
+      "secondsPlayed" : 1076
+    }, {
+      "name" : "Hotel Ugly",
+      "streamCount" : 7,
+      "secondsPlayed" : 1059
+    }, {
+      "name" : "Chandan Dass",
+      "streamCount" : 6,
+      "secondsPlayed" : 1991
+    } ],
+    "topGenres" : [ {
+      "name" : "pop",
+      "streamCount" : 48,
+      "secondsPlayed" : 8359
+    }, {
+      "name" : "electronic",
+      "streamCount" : 35,
+      "secondsPlayed" : 6106
+    }, {
+      "name" : "classic bollywood",
+      "streamCount" : 21,
+      "secondsPlayed" : 6051
+    }, {
+      "name" : "hindi pop",
+      "streamCount" : 23,
+      "secondsPlayed" : 5206
+    }, {
+      "name" : "indie",
+      "streamCount" : 23,
+      "secondsPlayed" : 5169
+    }, {
+      "name" : "alternative",
+      "streamCount" : 22,
+      "secondsPlayed" : 4783
+    }, {
+      "name" : "j-pop",
+      "streamCount" : 22,
+      "secondsPlayed" : 4603
+    }, {
+      "name" : "indie pop",
+      "streamCount" : 23,
+      "secondsPlayed" : 4477
+    }, {
+      "name" : "anime",
+      "streamCount" : 26,
+      "secondsPlayed" : 4167
+    }, {
+      "name" : "edm",
+      "streamCount" : 23,
+      "secondsPlayed" : 3995
+    } ],
+    "timeOfDayStats" : [ {
+      "period" : "late_evening",
+      "secondsPlayed" : 21240
+    }, {
+      "period" : "afternoon",
+      "secondsPlayed" : 22316
+    }, {
+      "period" : "morning",
+      "secondsPlayed" : 2646
+    }, {
+      "period" : "evening",
+      "secondsPlayed" : 33662
+    }, {
+      "period" : "early_morning",
+      "secondsPlayed" : 2096
+    }, {
+      "period" : "night",
+      "secondsPlayed" : 3454
+    } ]
+  }, {
+    "date" : "2025-10",
+    "streamCount" : 626,
+    "secondsPlayed" : 101758,
+    "topTracks" : [ {
+      "name" : "PIXELATED KISSES",
+      "streamCount" : 19,
+      "secondsPlayed" : 2056
+    }, {
+      "name" : "poster boy",
+      "streamCount" : 18,
+      "secondsPlayed" : 2004
+    }, {
+      "name" : "Mona Lisa",
+      "streamCount" : 12,
+      "secondsPlayed" : 2164
+    }, {
+      "name" : "1-800",
+      "streamCount" : 11,
+      "secondsPlayed" : 1987
+    }, {
+      "name" : "see through",
+      "streamCount" : 9,
+      "secondsPlayed" : 1479
+    }, {
+      "name" : "in the pool",
+      "streamCount" : 9,
+      "secondsPlayed" : 2091
+    }, {
+      "name" : "Miss The Rage - Instrumental",
+      "streamCount" : 8,
+      "secondsPlayed" : 1153
+    }, {
+      "name" : "Arz Kiya Hai | Coke Studio Bharat",
+      "streamCount" : 8,
+      "secondsPlayed" : 2060
+    }, {
+      "name" : "Do Ya Wanna Taste It",
+      "streamCount" : 8,
+      "secondsPlayed" : 1389
+    }, {
+      "name" : "IRIS OUT",
+      "streamCount" : 8,
+      "secondsPlayed" : 1091
+    } ],
+    "topArtists" : [ {
+      "name" : "Joji",
+      "streamCount" : 33,
+      "secondsPlayed" : 4065
+    }, {
+      "name" : "2hollis",
+      "streamCount" : 18,
+      "secondsPlayed" : 2004
+    }, {
+      "name" : "kensuke ushio",
+      "streamCount" : 14,
+      "secondsPlayed" : 2413
+    }, {
+      "name" : "bbno$",
+      "streamCount" : 13,
+      "secondsPlayed" : 2330
+    }, {
+      "name" : "Dominic Fike",
+      "streamCount" : 12,
+      "secondsPlayed" : 2164
+    }, {
+      "name" : "Kenshi Yonezu",
+      "streamCount" : 11,
+      "secondsPlayed" : 1506
+    }, {
+      "name" : "Kanye West",
+      "streamCount" : 10,
+      "secondsPlayed" : 2071
+    }, {
+      "name" : "Amelia Moore",
+      "streamCount" : 9,
+      "secondsPlayed" : 1479
+    }, {
+      "name" : "Anuv Jain",
+      "streamCount" : 8,
+      "secondsPlayed" : 2060
+    }, {
+      "name" : "Wig Wam",
+      "streamCount" : 8,
+      "secondsPlayed" : 1389
+    } ],
+    "topGenres" : [ {
+      "name" : "pop",
+      "streamCount" : 52,
+      "secondsPlayed" : 10533
+    }, {
+      "name" : "indie",
+      "streamCount" : 38,
+      "secondsPlayed" : 8307
+    }, {
+      "name" : "electronic",
+      "streamCount" : 39,
+      "secondsPlayed" : 7570
+    }, {
+      "name" : "hip hop",
+      "streamCount" : 25,
+      "secondsPlayed" : 5571
+    }, {
+      "name" : "american hip hop",
+      "streamCount" : 25,
+      "secondsPlayed" : 5342
+    }, {
+      "name" : "english hip hop",
+      "streamCount" : 23,
+      "secondsPlayed" : 4972
+    }, {
+      "name" : "pop rap",
+      "streamCount" : 17,
+      "secondsPlayed" : 4702
+    }, {
+      "name" : "hindi pop",
+      "streamCount" : 18,
+      "secondsPlayed" : 4691
+    }, {
+      "name" : "rock",
+      "streamCount" : 20,
+      "secondsPlayed" : 4630
+    }, {
+      "name" : "rap",
+      "streamCount" : 20,
+      "secondsPlayed" : 4560
+    } ],
+    "timeOfDayStats" : [ {
+      "period" : "late_evening",
+      "secondsPlayed" : 17374
+    }, {
+      "period" : "afternoon",
+      "secondsPlayed" : 31818
+    }, {
+      "period" : "morning",
+      "secondsPlayed" : 8880
+    }, {
+      "period" : "evening",
+      "secondsPlayed" : 23043
+    }, {
+      "period" : "early_morning",
+      "secondsPlayed" : 15770
+    }, {
+      "period" : "night",
+      "secondsPlayed" : 4843
+    } ]
+  }, {
+    "date" : "2025-09",
+    "streamCount" : 795,
+    "secondsPlayed" : 132464,
+    "topTracks" : [ {
+      "name" : "Bunnies",
+      "streamCount" : 18,
+      "secondsPlayed" : 2207
+    }, {
+      "name" : "FORGET YOU",
+      "streamCount" : 14,
+      "secondsPlayed" : 2222
+    }, {
+      "name" : "can't slow down",
+      "streamCount" : 14,
+      "secondsPlayed" : 2252
+    }, {
+      "name" : "breaking news",
+      "streamCount" : 14,
+      "secondsPlayed" : 2059
+    }, {
+      "name" : "São Paulo (feat. Anitta)",
+      "streamCount" : 14,
+      "secondsPlayed" : 3830
+    }, {
+      "name" : "a good man with a broken heart",
+      "streamCount" : 13,
+      "secondsPlayed" : 1537
+    }, {
+      "name" : "Circus",
+      "streamCount" : 12,
+      "secondsPlayed" : 1648
+    }, {
+      "name" : "Sahiba",
+      "streamCount" : 12,
+      "secondsPlayed" : 2246
+    }, {
+      "name" : "drifting",
+      "streamCount" : 11,
+      "secondsPlayed" : 1183
+    }, {
+      "name" : "RUNRUNRUN",
+      "streamCount" : 11,
+      "secondsPlayed" : 1491
+    } ],
+    "topArtists" : [ {
+      "name" : "The Weeknd",
+      "streamCount" : 32,
+      "secondsPlayed" : 7395
+    }, {
+      "name" : "Dutch Melrose",
+      "streamCount" : 26,
+      "secondsPlayed" : 3828
+    }, {
+      "name" : "Joji",
+      "streamCount" : 22,
+      "secondsPlayed" : 3763
+    }, {
+      "name" : "Oliver Richman",
+      "streamCount" : 18,
+      "secondsPlayed" : 2207
+    }, {
+      "name" : "AZALI",
+      "streamCount" : 18,
+      "secondsPlayed" : 1676
+    }, {
+      "name" : "Daft Punk",
+      "streamCount" : 16,
+      "secondsPlayed" : 2641
+    }, {
+      "name" : "Aditya Rikhari",
+      "streamCount" : 15,
+      "secondsPlayed" : 2641
+    }, {
+      "name" : "Kanye West",
+      "streamCount" : 14,
+      "secondsPlayed" : 3164
+    }, {
+      "name" : "almost monday",
+      "streamCount" : 14,
+      "secondsPlayed" : 2252
+    }, {
+      "name" : "flowerovlove",
+      "streamCount" : 14,
+      "secondsPlayed" : 2059
+    } ],
+    "topGenres" : [ {
+      "name" : "pop",
+      "streamCount" : 81,
+      "secondsPlayed" : 20785
+    }, {
+      "name" : "indie",
+      "streamCount" : 53,
+      "secondsPlayed" : 10806
+    }, {
+      "name" : "indie pop",
+      "streamCount" : 39,
+      "secondsPlayed" : 9287
+    }, {
+      "name" : "english hip hop",
+      "streamCount" : 46,
+      "secondsPlayed" : 9112
+    }, {
+      "name" : "hindi pop",
+      "streamCount" : 36,
+      "secondsPlayed" : 8852
+    }, {
+      "name" : "american hip hop",
+      "streamCount" : 42,
+      "secondsPlayed" : 8459
+    }, {
+      "name" : "hip hop",
+      "streamCount" : 39,
+      "secondsPlayed" : 8105
+    }, {
+      "name" : "alternative",
+      "streamCount" : 23,
+      "secondsPlayed" : 6508
+    }, {
+      "name" : "rap",
+      "streamCount" : 32,
+      "secondsPlayed" : 6407
+    }, {
+      "name" : "electronic",
+      "streamCount" : 36,
+      "secondsPlayed" : 6137
+    } ],
+    "timeOfDayStats" : [ ]
+  }, {
+    "date" : "2025-08",
+    "streamCount" : 630,
+    "secondsPlayed" : 99821,
+    "topTracks" : [ {
+      "name" : "Last Son",
+      "streamCount" : 41,
+      "secondsPlayed" : 6718
+    }, {
+      "name" : "a good man with a broken heart",
+      "streamCount" : 35,
+      "secondsPlayed" : 4041
+    }, {
+      "name" : "Sahiba",
+      "streamCount" : 29,
+      "secondsPlayed" : 4858
+    }, {
+      "name" : "Daydream In Blue",
+      "streamCount" : 22,
+      "secondsPlayed" : 4187
+    }, {
+      "name" : "aruarian dance",
+      "streamCount" : 21,
+      "secondsPlayed" : 4600
+    }, {
+      "name" : "Let It All Work Out",
+      "streamCount" : 21,
+      "secondsPlayed" : 5096
+    }, {
+      "name" : "Circus",
+      "streamCount" : 19,
+      "secondsPlayed" : 2545
+    }, {
+      "name" : "her",
+      "streamCount" : 19,
+      "secondsPlayed" : 2920
+    }, {
+      "name" : "drifting",
+      "streamCount" : 16,
+      "secondsPlayed" : 1808
+    }, {
+      "name" : "Crystal Skies (Sped Up)",
+      "streamCount" : 16,
+      "secondsPlayed" : 2026
+    } ],
+    "topArtists" : [ {
+      "name" : "David Fleming",
+      "streamCount" : 58,
+      "secondsPlayed" : 8898
+    }, {
+      "name" : "LoVibe.",
+      "streamCount" : 35,
+      "secondsPlayed" : 4041
+    }, {
+      "name" : "Aditya Rikhari",
+      "streamCount" : 33,
+      "secondsPlayed" : 5444
+    }, {
+      "name" : "AZALI",
+      "streamCount" : 30,
+      "secondsPlayed" : 2844
+    }, {
+      "name" : "I Monster",
+      "streamCount" : 22,
+      "secondsPlayed" : 4187
+    }, {
+      "name" : "Lil Wayne",
+      "streamCount" : 21,
+      "secondsPlayed" : 5096
+    }, {
+      "name" : "Nujabes",
+      "streamCount" : 21,
+      "secondsPlayed" : 4600
+    }, {
+      "name" : "JVKE",
+      "streamCount" : 21,
+      "secondsPlayed" : 3138
+    }, {
+      "name" : "John Michael Howell",
+      "streamCount" : 19,
+      "secondsPlayed" : 2545
+    }, {
+      "name" : "Dutch Melrose",
+      "streamCount" : 18,
+      "secondsPlayed" : 2525
+    } ],
+    "topGenres" : [ {
+      "name" : "pop",
+      "streamCount" : 55,
+      "secondsPlayed" : 12301
+    }, {
+      "name" : "theme songs",
+      "streamCount" : 44,
+      "secondsPlayed" : 11057
+    }, {
+      "name" : "downtempo",
+      "streamCount" : 24,
+      "secondsPlayed" : 8787
+    }, {
+      "name" : "english hip hop",
+      "streamCount" : 28,
+      "secondsPlayed" : 8445
+    }, {
+      "name" : "rap",
+      "streamCount" : 27,
+      "secondsPlayed" : 8277
+    }, {
+      "name" : "american hip hop",
+      "streamCount" : 27,
+      "secondsPlayed" : 8201
+    }, {
+      "name" : "hip hop",
+      "streamCount" : 26,
+      "secondsPlayed" : 8008
+    }, {
+      "name" : "hindi pop",
+      "streamCount" : 29,
+      "secondsPlayed" : 7892
+    }, {
+      "name" : "pop rap",
+      "streamCount" : 25,
+      "secondsPlayed" : 7532
+    }, {
+      "name" : "bollywood",
+      "streamCount" : 20,
+      "secondsPlayed" : 6315
+    } ],
+    "timeOfDayStats" : [ ]
+  } ],
+  "highlights" : [ {
+    "date" : "2026-07-05",
+    "highlightType" : "ON_REPEAT",
+    "onRepeatHighlight" : {
+      "entity" : "Stress Relief",
+      "streamCount" : 5
+    }
+  }, {
+    "date" : "2026-06-28",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "Dies Irae - Just Raw",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-06-21",
+    "highlightType" : "FIRST_TO_DISCOVER",
+    "firstToDiscoverHighlight" : {
+      "entity" : "Kill The Geese",
+      "country" : "IN",
+      "position" : 9599
+    }
+  }, {
+    "date" : "2026-06-14",
+    "highlightType" : "STREAKS",
+    "streaksHighlight" : {
+      "entity" : "SAME LA",
+      "dayStreaks" : 7
+    }
+  }, {
+    "date" : "2026-06-07",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "Roommates",
+      "topPercentile" : 0.0858460794762169
+    }
+  }, {
+    "date" : "2026-06",
+    "highlightType" : "UNLIKE_COMBINATION",
+    "unlikeCombinationHighlight" : {
+      "firstEntity" : "Shipra Goyal",
+      "secondEntity" : "Don Krez"
+    }
+  }, {
+    "date" : "2026-05-31",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "This Side of Paradise",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-05-24",
+    "highlightType" : "ON_REPEAT",
+    "onRepeatHighlight" : {
+      "entity" : "Roommates",
+      "streamCount" : 6
+    }
+  }, {
+    "date" : "2026-05-17",
+    "highlightType" : "STREAKS",
+    "streaksHighlight" : {
+      "entity" : "Beautiful (with Joji)",
+      "dayStreaks" : 3
+    }
+  }, {
+    "date" : "2026-05-10",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "TROLLYWOOD 1",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 2
+    }
+  }, {
+    "date" : "2026-05-03",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "Arrogance",
+      "topPercentile" : 0.13154005320721254
+    }
+  }, {
+    "date" : "2026-05",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "Breathe",
+      "topPercentile" : 0.04421307851387007
+    }
+  }, {
+    "date" : "2026-04-26",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "Marvel's Daredevil: Born Again Main Theme",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-04-19",
+    "highlightType" : "ON_REPEAT",
+    "onRepeatHighlight" : {
+      "entity" : "SAME LA",
+      "streamCount" : 8
+    }
+  }, {
+    "date" : "2026-04-12",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "SLOW DANCING IN THE DARK",
+      "topPercentile" : 0.10227333754796333
+    }
+  }, {
+    "date" : "2026-04-05",
+    "highlightType" : "STREAKS",
+    "streaksHighlight" : {
+      "entity" : "Breathe",
+      "dayStreaks" : 4
+    }
+  }, {
+    "date" : "2026-04",
+    "highlightType" : "PROPORTION_LISTENING_ENTITY",
+    "proportionListeningHighlight" : {
+      "entity" : "Tiffany Day",
+      "listeningPercentage" : 23.648310203600577
+    }
+  }, {
+    "date" : "2026-03-29",
+    "highlightType" : "FANS_LIKE_YOU",
+    "fansLikeYouHighlight" : {
+      "entity" : "Jaiye Sajana",
+      "country" : "IN",
+      "position" : 5,
+      "previousPosition" : -1,
+      "numberOfListeners" : 2856970
+    }
+  }, {
+    "date" : "2026-03-22",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "The End",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-03-15",
+    "highlightType" : "MILESTONE",
+    "milestoneHighlight" : {
+      "entity" : "Joji",
+      "milestoneListeningSeconds" : 14513
+    }
+  }, {
+    "date" : "2026-03-08",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "Joji",
+      "topPercentile" : 0.02433364771530829
+    }
+  }, {
+    "date" : "2026-03-01",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "Call Me A Spaceman",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-03",
+    "highlightType" : "FIRST_TO_DISCOVER",
+    "firstToDiscoverHighlight" : {
+      "entity" : "Went Wrong",
+      "country" : "IN",
+      "position" : 9783
+    }
+  }, {
+    "date" : "2026-02-22",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "MemeMandir",
+      "topPercentile" : 0.15510718789407313
+    }
+  }, {
+    "date" : "2026-02-15",
+    "highlightType" : "PROPORTION_LISTENING_ENTITY",
+    "proportionListeningHighlight" : {
+      "entity" : "Joji",
+      "listeningPercentage" : 64.46589164290415
+    }
+  }, {
+    "date" : "2026-02-08",
+    "highlightType" : "ON_THIS_PERIOD",
+    "onThisPeriodHighlight" : {
+      "entity" : "For The Taking",
+      "nostalgiaPeriod" : "YEAR",
+      "nostalgiaUnitsAgo" : 1
+    }
+  }, {
+    "date" : "2026-02-01",
+    "highlightType" : "STREAKS",
+    "streaksHighlight" : {
+      "entity" : "I Really Hate When People Play Golem (speed up)",
+      "dayStreaks" : 3
+    }
+  }, {
+    "date" : "2026-02",
+    "highlightType" : "ON_REPEAT",
+    "onRepeatHighlight" : {
+      "entity" : "Rose Colored (with Yeat)",
+      "streamCount" : 11
+    }
+  }, {
+    "date" : "2026-01-25",
+    "highlightType" : "UNLIKE_COMBINATION",
+    "unlikeCombinationHighlight" : {
+      "firstEntity" : "Hemang",
+      "secondEntity" : "Squeezebox Bandits"
+    }
+  }, {
+    "date" : "2026-01-18",
+    "highlightType" : "ON_REPEAT",
+    "onRepeatHighlight" : {
+      "entity" : "Rakhlo Tum Chupaake",
+      "streamCount" : 12
+    }
+  }, {
+    "date" : "2026-01-11",
+    "highlightType" : "PROPORTION_LISTENING_ENTITY",
+    "proportionListeningHighlight" : {
+      "entity" : "spotify:playlist:37i9dQZF1EJt3p5qppHOzI",
+      "listeningPercentage" : 61.01036269430051
+    }
+  }, {
+    "date" : "2026-01-04",
+    "highlightType" : "STREAKS",
+    "streaksHighlight" : {
+      "entity" : "Banda Kaam Ka",
+      "dayStreaks" : 3
+    }
+  }, {
+    "date" : "2026-01",
+    "highlightType" : "TOP_LISTENER",
+    "topListenerHighlight" : {
+      "entity" : "Thehra",
+      "topPercentile" : 0.03711553859921812
+    }
+  } ]
+}

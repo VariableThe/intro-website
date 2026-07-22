@@ -12,7 +12,7 @@ export interface NormalizedTrack {
   title: string;
   artist: string;
   albumArtist?: string;
-  album: string;
+  album?: string;
   artwork: string; // resolved absolute URL
   duration?: number; // milliseconds
   // Spotify

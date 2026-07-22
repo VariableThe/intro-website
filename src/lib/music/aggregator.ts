@@ -2,16 +2,25 @@
 // Calls all registered providers in parallel, merges results into a single
 // MusicData object. The aggregator is the only place that knows about providers —
 // all consumers (API route, components) work with MusicData only.
+//
+// Listening time estimate: the Spotify export covers ~1 year (Jul 2025 – Jul 2026)
+// out of ~6.5 years of account history (Jan 2020 – Jul 2026). Wrapped 2025 alone
+// shows 14.2 days. The TIME_MULTIPLIER below crudely accounts for the missing
+// ~5.5 years of Spotify history plus incomplete Apple Music data.
 
-import type { MusicData, MusicStats, NormalizedTrack, NormalizedAlbum, MusicSource } from "./types";
+import type { MusicData, MusicStats, NormalizedTrack, NormalizedAlbum, NormalizedArtist, TopItems, MusicSource } from "./types";
 import type { MusicProvider } from "./providers/provider";
 import { AppleXmlProvider } from "./providers/appleXml";
+import { SpotifyProvider } from "./providers/spotify";
+
+const TIME_MULTIPLIER = 5;
 
 // ─── Registered providers ─────────────────────────────────────────────────────
 // Add new providers here — no other changes needed.
 
 const PROVIDERS: MusicProvider[] = [
   new AppleXmlProvider(),
+  new SpotifyProvider(),
 ];
 
 // ─── Deduplication helpers ────────────────────────────────────────────────────
@@ -35,13 +44,21 @@ function albumKey(a: NormalizedAlbum): string {
   return `${normalizeKey(a.title)}::${normalizeKey(a.artist)}`;
 }
 
-/** Merge two tracks, preferring the one with more metadata */
+/** Merge two tracks, combining metrics across providers */
 function mergeTrack(a: NormalizedTrack, b: NormalizedTrack): NormalizedTrack {
+  // Pick most recent timestamp
+  const pickLatest = (x?: Date, y?: Date): Date | undefined => {
+    if (!x || !y) return x ?? y;
+    return x > y ? x : y;
+  };
+
   return {
     ...a,
+    // Additive across providers (Apple plays + Spotify streams)
+    playCount: (a.playCount ?? 0) + (b.playCount ?? 0),
+    // Loved if any provider says so
+    loved: a.loved || b.loved || undefined,
     // Prefer Apple XML's richer metadata
-    playCount: a.playCount ?? b.playCount,
-    loved: a.loved ?? b.loved,
     rating: a.rating ?? b.rating,
     genre: a.genre ?? b.genre,
     bpm: a.bpm ?? b.bpm,
@@ -49,7 +66,9 @@ function mergeTrack(a: NormalizedTrack, b: NormalizedTrack): NormalizedTrack {
     composer: a.composer ?? b.composer,
     skipCount: a.skipCount ?? b.skipCount,
     dateAdded: a.dateAdded ?? b.dateAdded,
-    lastPlayed: a.lastPlayed ?? b.lastPlayed,
+    // Most recent timestamp wins
+    lastPlayed: pickLatest(a.lastPlayed, b.lastPlayed),
+    playedAt: pickLatest(a.playedAt, b.playedAt),
     // Prefer the source with better artwork
     artwork: a.artwork !== "/music/placeholder.png" ? a.artwork : b.artwork,
   };
@@ -295,10 +314,15 @@ export async function aggregateMusicData(): Promise<{
     })
     .slice(0, 20);
 
+  // ── Top tracks (all-time, from merged data) ──
   const topTracksList = onRepeat.slice(0, 20);
-  const topTracks = { short: topTracksList, medium: topTracksList, long: topTracksList };
+  const topTracks: TopItems<NormalizedTrack> = {
+    short: topTracksList,
+    medium: topTracksList,
+    long: topTracksList,
+  };
 
-  // Compute top artists directly from library tracks
+  // ── Top artists (from merged data) ──
   const artistCounts = new Map<string, { artist: string; playCount: number; genres: Set<string>; artwork?: string }>();
   for (const t of allTracks) {
     if (!t.artist || t.artist === "Unknown Artist") continue;
@@ -325,7 +349,11 @@ export async function aggregateMusicData(): Promise<{
       url: `https://music.apple.com/us/search?term=${encodeURIComponent(a.artist)}`,
     }));
 
-  const topArtists = { short: topArtistsList, medium: topArtistsList, long: topArtistsList };
+  const topArtists: TopItems<NormalizedArtist> = {
+    short: topArtistsList,
+    medium: topArtistsList,
+    long: topArtistsList,
+  };
   const nowPlaying = null;
 
   const lovedTracks = allTracks
@@ -380,8 +408,9 @@ export async function aggregateMusicData(): Promise<{
   stats.totalAlbums = allAlbums.length;
   stats.totalArtists = new Set(allTracks.map((t) => normalizeKey(t.artist))).size;
   stats.totalGenres = genreDistribution.length;
-  stats.totalPlayCount = allTracks.reduce((sum, t) => sum + (t.playCount ?? 0), 0);
-  stats.totalTimeListenedMs = allTracks.reduce((sum, t) => sum + ((t.duration ?? 0) * (t.playCount ?? 0)), 0);
+  stats.totalPlayCount = allTracks.reduce((sum, t) => sum + (t.playCount ?? 0), 0) * TIME_MULTIPLIER;
+  stats.totalLovedTracks = allTracks.filter((t) => t.loved).length;
+  stats.totalTimeListenedMs = allTracks.reduce((sum, t) => sum + ((t.duration ?? 0) * (t.playCount ?? 0)), 0) * TIME_MULTIPLIER;
   stats.totalDurationMs = allTracks.reduce((sum, t) => sum + (t.duration ?? 0), 0);
 
   const data: MusicData = {
