@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Music2, ArrowRight, Flag, Image } from "lucide-react";
+import { ArrowLeft, Music2, ArrowRight, Flag, Image, Grid3x3 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // ─── Things to add here later ──────────────────────────────────────────────
@@ -22,6 +22,14 @@ interface Section {
 }
 
 const SECTIONS: Section[] = [
+  {
+    id: "dotmatrix",
+    label: "DotMatrix Mirror",
+    desc: "Your webcam as an LED wall — live dot-matrix mirror in the browser.",
+    status: "live",
+    href: "/fun/dotmatrix",
+    icon: <Grid3x3 size={18} className="text-primary" />,
+  },
   {
     id: "wallpapers",
     label: "Wallpapers",
