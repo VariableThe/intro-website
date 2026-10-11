@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, Instagram, Mail, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { DotMatrixMirror } from "@/components/DotMatrixMirror";
 
 const NAV = [
   { label: "Projects", href: "/projects", external: false },
@@ -28,6 +29,16 @@ const SOCIALS = [
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mirror, setMirror] = useState(false);
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 700px)");
+    const update = () => setNarrow(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -43,19 +54,33 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center p-8 bg-background">
 
+      {/* Ambient dot-matrix backdrop — fluid field idle, circular mirror on camera */}
+      <div className="absolute inset-0 text-foreground">
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/85 pointer-events-none" />
+        <DotMatrixMirror mode="ambient" cols={72} onMirrorChange={setMirror} />
+      </div>
+
       {/* Parallax circles */}
       <motion.div
         className="absolute w-[600px] h-[600px] border border-foreground/8 rounded-full pointer-events-none"
-        animate={{ x: mousePosition.x * -30, y: mousePosition.y * -30 }}
+        animate={{ x: mousePosition.x * -30, y: mousePosition.y * -30, opacity: mirror ? 0 : 1 }}
         transition={{ type: "spring", stiffness: 40, damping: 20 }}
       />
       <motion.div
         className="absolute w-[350px] h-[350px] border border-foreground/5 rounded-full pointer-events-none"
-        animate={{ x: mousePosition.x * -15, y: mousePosition.y * -15 }}
+        animate={{ x: mousePosition.x * -15, y: mousePosition.y * -15, opacity: mirror ? 0 : 1 }}
         transition={{ type: "spring", stiffness: 50, damping: 25 }}
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 max-w-xl mx-auto text-center">
+      <motion.div
+        className="relative z-10 flex flex-col items-center gap-8 max-w-xl mx-auto text-center"
+        animate={{
+          x: mirror && !narrow ? "-16vw" : 0,
+          y: mirror && narrow ? "-12vh" : 0,
+          scale: mirror ? 0.9 : 1,
+        }}
+        transition={{ type: "spring", stiffness: 55, damping: 16 }}
+      >
 
         {/* Name */}
         <motion.div
@@ -147,7 +172,7 @@ export default function Home() {
           ))}
         </motion.div>
 
-      </div>
+      </motion.div>
     </main>
   );
 }
