@@ -1,0 +1,71 @@
+# Aditya Sharma
+
+> Building open-source tools, native apps, and whatever else feels interesting.
+> CS & FinTech student at MIT. Into open source, native apps, security, and making physical things.
+
+## Contact
+- GitHub: https://github.com/VariableThe
+- LinkedIn: https://www.linkedin.com/in/aditya-sharma-4aa716336/
+- X / Twitter: https://x.com/Variable_the_
+- Instagram: https://www.instagram.com/variable_the/
+- Email: adityasharma.variable@gmail.com
+- Design Portfolio: https://www.playbook.com/s/thevariable/ZWGdbCYHW9jRXLaSDKrBnDBM
+
+## Sites
+- Main: https://intro.vrbl.win
+- Gallery: https://gallery.vrbl.win
+- Tools: https://tools.vrbl.win
+- PaperCache app/docs: https://papercache.vrbl.win
+- Subdomain routing: blog.vrbl.win, projects.vrbl.win, about.vrbl.win, fun.vrbl.win rewrite to /blog, /projects, /about, /fun on the main site
+
+## Pages
+- Home: https://intro.vrbl.win/ — name, tagline, internal nav, external links, socials
+- About: https://intro.vrbl.win/about — bio, live GitHub stats, skills, timeline (2026-2015)
+- Projects: https://intro.vrbl.win/projects — curated open-source projects + live GitHub activity and full repo list
+- Blog: https://intro.vrbl.win/blog — build notes and project writeups
+- Fun: https://intro.vrbl.win/fun — non-code experiments index
+- Music: https://intro.vrbl.win/music — personal listening dashboard (Apple Music library + Spotify history)
+- CTF: https://intro.vrbl.win/ctf — authored challenges and solved writeups
+- Wallpapers: https://intro.vrbl.win/fun/wallpapers — wallpaper collection with edit/download
+
+## About
+CS & FinTech B.Tech student at MIT (started 2023, SAT 1440, CGPA 7.16).
+Languages: Python, TypeScript, Swift, Java, C, C++.
+Web: Next.js, React, Spring Boot, Tailwind.
+Native/Systems: SwiftUI, AppKit, Linux, PipeWire, Docker.
+Other: Blender, Unity, Blockchain, CTF / Security.
+Timeline:
+- 2026: PaperCache (reactive markdown notebook, 8 stars), Omelette (OpenRouter extension for Raycast/Vicinae), Vinyl (macOS menu bar lyrics app in Swift)
+- 2025: DRDO requisition platform intern, IIT Indore EVM/smart-contract research, PipeWire audio splitter, General Secretary PRISM
+- 2024: Design Head (100+ designers, Finova/MIST), organised KernelCTF/AuroraCTF/IndomitusCTF, Python blockchain P2P, ML network intrusion detection
+- 2023: Started B.Tech MIT
+- 2021: 3D modelling / prop making (Blender, CAD, woodworking, origami)
+- 2015: YouTube tech & gaming channel
+
+## Projects
+- PaperCache: Reactive markdown notebook with live calculations, inline AI, variables, scratchpads. Local-first. https://github.com/VariableThe/PaperCache
+- Newsfeed: Personal RSS aggregator, fast mobile scanning. https://github.com/VariableThe/newsfeed
+- Vinyl: Native Swift menu-bar lyrics for Apple Music + Spotify. https://github.com/VariableThe/Vinyl
+- Omelette for Raycast: OpenRouter launcher extension. https://github.com/VariableThe/Omelette-The-Openrouter-Extention-for-Raycast
+- Omelette for Vicinae: Linux/cross-platform port. https://github.com/VariableThe/Omelette-vicinae
+- Terminal AI Helper: Python terminal AI via OpenRouter/Hugging Face. https://github.com/VariableThe/Terminal_helper
+- PipeWire Monitor Splitter: Multi-monitor audio routing on Linux. https://github.com/VariableThe/pipewire-audio-controller
+- Blockchain P2P: Custom blockchain peer network. https://github.com/VariableThe/Peer-Network
+- Full list: https://github.com/VariableThe?tab=repositories
+
+## Blog
+- Building PaperCache: Why I Made a Floating Knowledge Manager (2026-07-16): https://intro.vrbl.win/blog/building-papercache — Electron to Tauri v2/Rust rewrite, 80MB to ~6.8MB installer, <38MB idle, custom math evaluator, inline AI via /ai and /ctx
+- Recent project posts index: https://intro.vrbl.win/blog
+
+## Fun
+- Live: Wallpapers (/fun/wallpapers), Music (/music), CTF Writeups (/ctf)
+- Coming soon: 3D & Modelling, Props & Making, Game Dev
+
+## Music
+Personal dashboard aggregating Apple Music library XML + Spotify streaming history. Sections: Now Playing, Recently Played, Top Artists/Tracks, On Repeat, Most Loved/Skipped, Hidden Gems, Genre Map, Listening Timeline, Album Wall. ISR revalidate 20 min.
+
+## CTF
+Authored (MistCTF / KERNEL CTF / Indomitus): Cathode Ray Tube, A Thrist for Information, A Trip to Italy, 50 shades of network, K3rnE1 (popcorn.png), T0ta1_R3doll, Wh3rE the Sun D0nt sh1n3.
+Solved writeups (picoCTF): miniRSA, Dachshund Attacks, substitution1, transposition-trial, Vigenere, Flags, Easy1, Matryoshka doll, glory of the garden, Information, Mob Psycho.
+Repos: Indomitus, KERNEL, Cryptography-PicoCTF-writeup, Forensics-PicoCTF-writeup, PicoCTF_ver2.
+Index: https://intro.vrbl.win/ctf
