@@ -33,6 +33,17 @@ export default function DotMatrixPage() {
             Ported from a Python + OpenCV desktop toy. The web version samples video to a tiny grid on a hidden canvas
             and redraws it as dots — nothing is uploaded anywhere.
           </p>
+          <p className="mt-3">
+            Source:{" "}
+            <a
+              href="https://github.com/VariableThe/NothingMirror"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary hover:opacity-80 transition-opacity"
+            >
+              github.com/VariableThe/NothingMirror
+            </a>
+          </p>
         </div>
       </div>
     </main>
