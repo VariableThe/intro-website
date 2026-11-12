@@ -34,8 +34,8 @@ interface CuratedProject {
     links?: ProjectLink[];
 }
 
-// Flagship projects get a fuller treatment: prose, capabilities, and an
-// honest status/role line where authorship or scope needs to be explicit.
+// Flagship projects get a fuller treatment: prose, capabilities, and a
+// status/role line where authorship or scope needs to be explicit.
 interface FeaturedProject extends CuratedProject {
     color: string;
     description: string;
@@ -47,8 +47,7 @@ interface FeaturedProject extends CuratedProject {
 const githubUrl = (repo: string) => `https://github.com/VariableThe/${repo}`;
 
 // ─── Flagship projects ───────────────────────────────────────────────────────
-// Shown first, with the most substance. Each detail below is drawn from the
-// project's public README and source; nothing here is estimated.
+// Shown first. Each detail is drawn from the project's public README and source.
 
 const FEATURED: FeaturedProject[] = [
     {
@@ -57,16 +56,13 @@ const FEATURED: FeaturedProject[] = [
         color: "#e11d48",
         blurb: "A floating, local-first knowledge manager that computes as you type.",
         description:
-            "A notes tool that behaves more like a spreadsheet than a text file. It stays out of the way until a hotkey summons it at your cursor, then evaluates math, streams AI answers, and tracks tasks inline — all on-device, with no account and no subscription.",
+            "A hotkey summons the notepad at your cursor, where it evaluates math, tracks tasks, and can answer with AI before vanishing again. Notes stay on your machine; the optional AI assistant runs against a local Ollama instance or a cloud model on OpenRouter.",
         capabilities: [
-            "Reactive math & variables — `/var rate = 85`, then `rate * 40 =` resolves to 3400 and recalculates everywhere when the variable changes.",
-            "Inline AI — `/ai` streams a response into the note and `/ctx` bundles the note as context; works with OpenRouter free models or a local Ollama instance, with keys kept in the OS keychain.",
-            "Slash commands — `/check` checkboxes, `/task @ 1d2h` reminders, `/timer` countdowns with native notifications; hex colors render as copyable pills and dates as badges.",
-            "Graph view — `Cmd+G` opens a WebGL knowledge graph; `Cmd+F` fuzzy-searches straight to any node.",
+            "Reactive math and variables: `/var rate = 85`, then `rate * 40 =` resolves to 3400 and updates everywhere when the variable changes.",
+            "Optional inline AI: `/ai` answers in place, using a local Ollama instance or OpenRouter, with keys kept in your keychain.",
+            "Slash commands for checkboxes, due-date reminders, and timers, plus a searchable WebGL graph view.",
         ],
         stack: ["Tauri v2", "Rust", "React", "TypeScript"],
-        status:
-            "Rewritten from Electron to Tauri v2 — roughly a 6.8MB macOS binary, under 38MB idle RAM, and 0% idle CPU.",
         links: [
             { label: "Source", url: githubUrl("PaperCache") },
             { label: "Live app", url: "https://papercache.vrbl.win" },
@@ -78,33 +74,29 @@ const FEATURED: FeaturedProject[] = [
         color: "#2563eb",
         blurb: "A local-first field monitor and Sony camera control surface.",
         description:
-            "Gives a laptop or desktop the job of a larger production monitor: clean full-screen preview, exposure and focus assists, scopes, monitor looks, and model-dependent Sony control. Footage, LUTs, recordings, and stills stay on the operator's machine.",
+            "Turns a laptop into a larger production monitor for Sony cameras. Preview, exposure and focus assists, scopes, and camera control all run locally on your machine.",
         capabilities: [
-            "Monitor assists — zebra, false color, focus peaking, waveform, vectorscope, frame guides, mirror, and anamorphic desqueeze.",
-            "Looks & LUTs — built-in monitoring looks plus custom `.cube` LUT preview with strength control.",
-            "Camera control — ISO, shutter, aperture, white balance, and focus over Sony UVC/HDMI, Wi-Fi Remote API, gphoto2 USB, or Camera Remote SDK.",
-            "Output — local recording, PNG frame export, and a virtual camera that feeds Zoom, Meet, or Teams.",
+            "Monitor assists: zebra, false color, focus peaking, waveform, vectorscope, and frame guides.",
+            "Camera control for ISO, shutter, aperture, white balance, and focus over Sony transports.",
+            "Local recording and PNG export, plus a virtual camera output for calls.",
         ],
         stack: ["Python", "Qt", "OpenCV", "gphoto2"],
-        status:
-            "MIT-licensed with CI on Python 3.11/3.12. Linux and macOS first; Windows supports capture cards and network streams.",
+        status: "MIT-licensed with CI. Linux and macOS first; Windows supports capture cards and network streams.",
         links: [{ label: "Source", url: githubUrl("viewfindrr") }],
     },
     {
         repoName: "agent-kit-public",
-        title: "Agent Kit — public distribution",
+        title: "Agent Kit (public distribution)",
         color: "#7c3aed",
         blurb: "A portable agent workspace: rules, skills, and plugins, shipped as files.",
         description:
-            "The sanitized, public release of a personal agent setup. It installs into a home directory with an opt-in installer and keeps the tree honest with offline checks. Config management is off by default and no private agent configuration is published — everything here is files on disk that contact nothing until you run them.",
+            "A portable agent setup you install into your own home directory: global rules, a skills library, and OpenCode plugins, all as plain files. An opt-in installer links them into place without touching your existing config.",
         capabilities: [
-            "agent-kit-public — AGENTS.md global rules, two OpenCode plugins (a model-routing/delegation guard and a loopback-URL rewriter), and an installer that reports drift without mutating your config.",
-            "agent-skills — eleven local-first skills (PDF, image, OCR, audio transcription, CSV, and more) following the Agent Skills spec, each running entirely on-device.",
-            "dot-kit-public — sanitized T3/Beeper workflow skills, with upstream connector source pinned as a submodule and no credentials or host configuration.",
+            "agent-kit-public: global rules plus two OpenCode plugins for model routing and loopback URL rewriting.",
+            "agent-skills: eleven local-first skills for PDF, image, OCR, audio transcription, and more.",
+            "dot-kit-public: T3 and Beeper workflow skills, with upstream connector source pinned as a submodule.",
         ],
         stack: ["Python", "Bash", "Node", "OpenCode plugins"],
-        status:
-            "Public distribution only — self-hosted, and nothing writes to your config or mints a token until you run it yourself.",
         links: [
             { label: "agent-kit-public", url: githubUrl("agent-kit-public") },
             { label: "agent-skills", url: githubUrl("agent-skills") },
@@ -116,18 +108,16 @@ const FEATURED: FeaturedProject[] = [
         title: "Gait-based Continuous Authentication",
         color: "#059669",
         blurb: "A research pipeline for gait-based user authentication on public datasets.",
-        role: "Team project — MAHE minor specialization · my role: Student B (deep-learning models B1–B7).",
+        role: "Team project for a MAHE minor specialization; my role was the deep-learning model track (B1–B7).",
         description:
-            "A minor-specialization project (mentor Manjunath Hegde) split across three students: preprocessing (A), models (B), and evaluation (C). My part was the deep-learning model track — seven paper-driven architectures reproduced, wired into a shared pipeline, and validated as a research baseline rather than a deployable authenticator.",
+            "A team project split across three students for preprocessing, models, and evaluation. I built the deep-learning track: seven model and optimization approaches from papers B1 through B7, reproduced and validated as a research baseline.",
         capabilities: [
-            "B1–B3 — multi-sensor CNN fusion, a multi-task CNN+LSTM (METIER), and a DeepConvLSTM baseline for continuous authentication.",
-            "B4–B5 — a Siamese autoencoder network (triplet/contrastive loss) and a squeeze-and-excitation ConvNet.",
-            "B6–B7 — pruning, quantization, and ONNX export for edge deployment, plus a SEGait-ConViT vision-transformer variant.",
-            "Reproducible — bounded CPU/CUDA runs on public UCI HAR and WISDM AR v1.1 data via `uv`, with frozen checkpoints and held-out evaluation.",
+            "B1–B3: multi-sensor CNN fusion, a multi-task CNN+LSTM, and a DeepConvLSTM baseline.",
+            "B4–B5: a Siamese autoencoder network and a squeeze-and-excitation ConvNet.",
+            "B6–B7: pruning, quantization, and ONNX export, plus a SEGait-ConViT vision transformer.",
         ],
         stack: ["PyTorch", "Python", "CUDA/CPU"],
-        status:
-            "Research baseline, not a usable passive authenticator — results are exploratory and published with their limits in the repo.",
+        status: "Research baseline, not a deployable authenticator; results are exploratory and published with their limits.",
         links: [
             { label: "Source", url: githubUrl("gait-biometrics") },
             { label: "Consolidated", url: githubUrl("gait-biometrics-final") },
@@ -150,7 +140,7 @@ const CURATED: {
             {
                 repoName: "newsfeed",
                 title: "Newsfeed",
-                blurb: "A phone-first RSS reader with no backend. Nine publisher feeds in a swipe deck, a chronological feed, and a saved list — installable as a PWA, with cross-source trending detection.",
+                blurb: "A phone-first RSS reader with no backend. Nine publisher feeds in a swipe deck, a chronological feed, and a saved list. Installable as a PWA, with cross-source trending detection.",
                 stack: ["TypeScript", "PWA"],
                 links: [
                     { label: "Source", url: githubUrl("newsfeed") },
@@ -180,14 +170,14 @@ const CURATED: {
             {
                 repoName: "SwiftType",
                 title: "SwiftType",
-                blurb: "System-wide autocorrect for macOS under 5ms, fully offline. A hybrid SymSpell + BK-Tree engine, technical vocabularies, adaptive learning, Cmd+Z undo, and automatic secure-field bypass.",
+                blurb: "System-wide autocorrect for macOS, fully offline. A hybrid SymSpell + BK-Tree engine, technical vocabularies, adaptive learning, Cmd+Z undo, and automatic secure-field bypass.",
                 stack: ["Swift 6", "SymSpell", "BK-Tree"],
                 links: [{ label: "Source", url: githubUrl("SwiftType") }],
             },
             {
                 repoName: "Dimmer",
                 title: "Dimmer",
-                blurb: "Content-aware adaptive brightness for the Mac menu bar. Analyzes a downsampled local capture and stays honest about API limits — macOS has no public backlight API, so it falls back to a truthful overlay.",
+                blurb: "Content-aware adaptive brightness for the Mac menu bar. Analyzes a downsampled local capture and adjusts perceived brightness to the visible content.",
                 stack: ["SwiftUI", "AppKit", "ScreenCaptureKit"],
                 links: [{ label: "Source", url: githubUrl("Dimmer") }],
             },
@@ -200,7 +190,7 @@ const CURATED: {
             {
                 repoName: "Omelette-The-Openrouter-Extention-for-Raycast",
                 title: "Omelette for Raycast",
-                blurb: "OpenRouter access straight from the Raycast launcher — any model, no vendor lock-in. Instant model switching, quick actions, word-by-word streaming, and local conversation history.",
+                blurb: "OpenRouter access straight from the Raycast launcher, with any model and no vendor lock-in. Instant model switching, quick actions, word-by-word streaming, and local conversation history.",
                 stack: ["TypeScript", "Raycast API"],
                 links: [{ label: "Source", url: githubUrl("Omelette-The-Openrouter-Extention-for-Raycast") }],
             },
@@ -214,14 +204,14 @@ const CURATED: {
             {
                 repoName: "Terminal_helper",
                 title: "Terminal AI Helper",
-                blurb: "Two tiny CLI tools that bring LLMs into the shell — `ai` (Hugging Face) and `fa` (OpenRouter) answer natural-language prompts with rich markdown output, reading keys from the environment.",
+                blurb: "Two tiny CLI tools that bring LLMs into the shell. `ai` (Hugging Face) and `fa` (OpenRouter) answer natural-language prompts with rich markdown output, reading keys from the environment.",
                 stack: ["Python", "OpenRouter", "Hugging Face"],
                 links: [{ label: "Source", url: githubUrl("Terminal_helper") }],
             },
             {
                 repoName: "opencode-phone",
                 title: "opencode-phone",
-                blurb: "Drive your opencode coding agent from an Android phone over Tailscale. An Expo app plus a workstation bridge, an ntfy notifier for approvals, and one-command QR onboarding — traffic stays on your own tailnet.",
+                blurb: "Drive your opencode coding agent from an Android phone over Tailscale. An Expo app plus a workstation bridge, an ntfy notifier for approvals, and one-command QR onboarding. Traffic stays on your own tailnet.",
                 stack: ["Expo", "React Native", "Tailscale"],
                 links: [{ label: "Source", url: githubUrl("opencode-phone") }],
             },
@@ -264,7 +254,7 @@ function StackChips({ stack }: { stack?: string[] }) {
             {stack.map(s => (
                 <span
                     key={s}
-                    className="font-mono text-[11px] text-foreground/50 border border-border px-2 py-0.5"
+                    className="font-mono text-[11px] text-foreground/55 border border-border px-2 py-0.5"
                 >
                     {s}
                 </span>
@@ -283,7 +273,7 @@ function LinksRow({ links }: { links?: ProjectLink[] }) {
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-xs text-foreground/50 hover:text-foreground transition-colors group/link"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-foreground/60 hover:text-foreground transition-colors group/link"
                 >
                     {l.label}
                     <ExternalLink size={11} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
@@ -303,7 +293,7 @@ function LiveStats({
     forks: number;
 }) {
     return (
-        <div className="flex items-center gap-3 text-xs font-mono text-foreground/40">
+        <div className="flex items-center gap-3 text-xs font-mono text-foreground/55">
             {language && <span>{language}</span>}
             {stars > 0 && (
                 <span className="flex items-center gap-1">
@@ -349,24 +339,24 @@ function FeaturedCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} on GitHub`}
-                    className="text-foreground/30 hover:text-foreground/60 transition-colors shrink-0 mt-0.5"
+                    className="text-foreground/35 hover:text-foreground/65 transition-colors shrink-0 mt-0.5"
                 >
                     <ExternalLink size={15} />
                 </a>
             </div>
 
             {project.role && (
-                <p className="font-mono text-xs text-primary/80 leading-relaxed border-l-2 border-primary pl-3">
+                <p className="font-mono text-xs text-primary/85 leading-relaxed border-l-2 border-primary pl-3">
                     {project.role}
                 </p>
             )}
 
             <p className="text-sm text-foreground/70 leading-relaxed">{project.blurb}</p>
-            <p className="text-sm text-foreground/50 leading-relaxed">{project.description}</p>
+            <p className="text-sm text-foreground/70 leading-relaxed">{project.description}</p>
 
             <ul className="space-y-2">
                 {project.capabilities.map(c => (
-                    <li key={c} className="flex gap-2.5 text-sm text-foreground/60 leading-relaxed">
+                    <li key={c} className="flex gap-2.5 text-sm text-foreground/70 leading-relaxed">
                         <span
                             className="mt-[0.6em] w-1.5 h-1.5 shrink-0"
                             style={{ backgroundColor: project.color }}
@@ -377,7 +367,7 @@ function FeaturedCard({
             </ul>
 
             {project.status && (
-                <p className="font-mono text-xs text-foreground/45 leading-relaxed">
+                <p className="font-mono text-xs text-foreground/60 leading-relaxed">
                     {project.status}
                 </p>
             )}
@@ -421,13 +411,13 @@ function ProjectCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} on GitHub`}
-                    className="text-foreground/20 group-hover:text-foreground/55 transition-colors shrink-0 mt-0.5"
+                    className="text-foreground/25 group-hover:text-foreground/60 transition-colors shrink-0 mt-0.5"
                 >
                     <ExternalLink size={14} />
                 </a>
             </div>
 
-            <p className="text-sm text-foreground/50 leading-relaxed flex-1 mb-4">
+            <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-4">
                 {project.blurb}
             </p>
 
@@ -486,12 +476,13 @@ const CURATED_NAMES = new Set([
     ...CURATED.flatMap(g => g.projects.map(p => p.repoName.toLowerCase())),
 ]);
 
-// Repos already surfaced via a featured card's links — kept out of the
+// Repos already surfaced via a featured card's links, kept out of the
 // auto-generated "Everything else" list to avoid duplication.
 const SUPPRESSED = new Set([
     "agent-skills",
     "dot-kit-public",
     "gait-biometrics-final",
+    "gait-biometrics-student-b",
 ]);
 
 interface GitHubRepoItem {
@@ -584,7 +575,7 @@ export default function Projects() {
                 >
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Projects</h1>
                     <p className="text-foreground/50 text-base max-w-2xl">
-                        Open source tools and experiments —{" "}
+                        Open source tools and experiments from{" "}
                         <a href="https://github.com/VariableThe" target="_blank" rel="noreferrer"
                             className="underline hover:text-foreground transition-colors">
                             github.com/VariableThe
