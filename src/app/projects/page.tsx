@@ -19,32 +19,150 @@ interface Repo {
     language: string;
 }
 
+interface ProjectLink {
+    label: string;
+    url: string;
+}
+
+// A curated project. `repoName` drives live GitHub stats and the default
+// source link; `links` overrides/adds explicit source and demo destinations.
+interface CuratedProject {
+    repoName: string;
+    title: string;
+    blurb: string;
+    stack?: string[];
+    links?: ProjectLink[];
+}
+
+// Flagship projects get a fuller treatment: prose, capabilities, and an
+// honest status/role line where authorship or scope needs to be explicit.
+interface FeaturedProject extends CuratedProject {
+    color: string;
+    description: string;
+    capabilities: string[];
+    role?: string;
+    status?: string;
+}
+
+const githubUrl = (repo: string) => `https://github.com/VariableThe/${repo}`;
+
+// ─── Flagship projects ───────────────────────────────────────────────────────
+// Shown first, with the most substance. Each detail below is drawn from the
+// project's public README and source; nothing here is estimated.
+
+const FEATURED: FeaturedProject[] = [
+    {
+        repoName: "PaperCache",
+        title: "PaperCache",
+        color: "#e11d48",
+        blurb: "A floating, local-first knowledge manager that computes as you type.",
+        description:
+            "A notes tool that behaves more like a spreadsheet than a text file. It stays out of the way until a hotkey summons it at your cursor, then evaluates math, streams AI answers, and tracks tasks inline — all on-device, with no account and no subscription.",
+        capabilities: [
+            "Reactive math & variables — `/var rate = 85`, then `rate * 40 =` resolves to 3400 and recalculates everywhere when the variable changes.",
+            "Inline AI — `/ai` streams a response into the note and `/ctx` bundles the note as context; works with OpenRouter free models or a local Ollama instance, with keys kept in the OS keychain.",
+            "Slash commands — `/check` checkboxes, `/task @ 1d2h` reminders, `/timer` countdowns with native notifications; hex colors render as copyable pills and dates as badges.",
+            "Graph view — `Cmd+G` opens a WebGL knowledge graph; `Cmd+F` fuzzy-searches straight to any node.",
+        ],
+        stack: ["Tauri v2", "Rust", "React", "TypeScript"],
+        status:
+            "Rewritten from Electron to Tauri v2 — roughly a 6.8MB macOS binary, under 38MB idle RAM, and 0% idle CPU.",
+        links: [
+            { label: "Source", url: githubUrl("PaperCache") },
+            { label: "Live app", url: "https://papercache.vrbl.win" },
+        ],
+    },
+    {
+        repoName: "viewfindrr",
+        title: "Viewfindrr",
+        color: "#2563eb",
+        blurb: "A local-first field monitor and Sony camera control surface.",
+        description:
+            "Gives a laptop or desktop the job of a larger production monitor: clean full-screen preview, exposure and focus assists, scopes, monitor looks, and model-dependent Sony control. Footage, LUTs, recordings, and stills stay on the operator's machine.",
+        capabilities: [
+            "Monitor assists — zebra, false color, focus peaking, waveform, vectorscope, frame guides, mirror, and anamorphic desqueeze.",
+            "Looks & LUTs — built-in monitoring looks plus custom `.cube` LUT preview with strength control.",
+            "Camera control — ISO, shutter, aperture, white balance, and focus over Sony UVC/HDMI, Wi-Fi Remote API, gphoto2 USB, or Camera Remote SDK.",
+            "Output — local recording, PNG frame export, and a virtual camera that feeds Zoom, Meet, or Teams.",
+        ],
+        stack: ["Python", "Qt", "OpenCV", "gphoto2"],
+        status:
+            "MIT-licensed with CI on Python 3.11/3.12. Linux and macOS first; Windows supports capture cards and network streams.",
+        links: [{ label: "Source", url: githubUrl("viewfindrr") }],
+    },
+    {
+        repoName: "agent-kit-public",
+        title: "Agent Kit — public distribution",
+        color: "#7c3aed",
+        blurb: "A portable agent workspace: rules, skills, and plugins, shipped as files.",
+        description:
+            "The sanitized, public release of a personal agent setup. It installs into a home directory with an opt-in installer and keeps the tree honest with offline checks. Config management is off by default and no private agent configuration is published — everything here is files on disk that contact nothing until you run them.",
+        capabilities: [
+            "agent-kit-public — AGENTS.md global rules, two OpenCode plugins (a model-routing/delegation guard and a loopback-URL rewriter), and an installer that reports drift without mutating your config.",
+            "agent-skills — eleven local-first skills (PDF, image, OCR, audio transcription, CSV, and more) following the Agent Skills spec, each running entirely on-device.",
+            "dot-kit-public — sanitized T3/Beeper workflow skills, with upstream connector source pinned as a submodule and no credentials or host configuration.",
+        ],
+        stack: ["Python", "Bash", "Node", "OpenCode plugins"],
+        status:
+            "Public distribution only — self-hosted, and nothing writes to your config or mints a token until you run it yourself.",
+        links: [
+            { label: "agent-kit-public", url: githubUrl("agent-kit-public") },
+            { label: "agent-skills", url: githubUrl("agent-skills") },
+            { label: "dot-kit-public", url: githubUrl("dot-kit-public") },
+        ],
+    },
+    {
+        repoName: "gait-biometrics",
+        title: "Gait-based Continuous Authentication",
+        color: "#059669",
+        blurb: "A research pipeline for gait-based user authentication on public datasets.",
+        role: "Team project — MAHE minor specialization · my role: Student B (deep-learning models B1–B7).",
+        description:
+            "A minor-specialization project (mentor Manjunath Hegde) split across three students: preprocessing (A), models (B), and evaluation (C). My part was the deep-learning model track — seven paper-driven architectures reproduced, wired into a shared pipeline, and validated as a research baseline rather than a deployable authenticator.",
+        capabilities: [
+            "B1–B3 — multi-sensor CNN fusion, a multi-task CNN+LSTM (METIER), and a DeepConvLSTM baseline for continuous authentication.",
+            "B4–B5 — a Siamese autoencoder network (triplet/contrastive loss) and a squeeze-and-excitation ConvNet.",
+            "B6–B7 — pruning, quantization, and ONNX export for edge deployment, plus a SEGait-ConViT vision-transformer variant.",
+            "Reproducible — bounded CPU/CUDA runs on public UCI HAR and WISDM AR v1.1 data via `uv`, with frozen checkpoints and held-out evaluation.",
+        ],
+        stack: ["PyTorch", "Python", "CUDA/CPU"],
+        status:
+            "Research baseline, not a usable passive authenticator — results are exploratory and published with their limits in the repo.",
+        links: [
+            { label: "Source", url: githubUrl("gait-biometrics") },
+            { label: "Consolidated", url: githubUrl("gait-biometrics-final") },
+        ],
+    },
+];
+
 // ─── Curated projects, grouped by category ──────────────────────────────────
-// Edit this to control what appears in the main sections.
-// Each project is matched to a live repo for star/fork counts.
+// The rest of the strongest work, each matched to a live repo for stats.
 
 const CURATED: {
     category: string;
     color: string;
-    projects: {
-        repoName: string;
-        title: string;
-        description: string;
-    }[];
+    projects: CuratedProject[];
 }[] = [
     {
         category: "Web & Apps",
         color: "#e11d48",
         projects: [
             {
-                repoName: "PaperCache",
-                title: "PaperCache",
-                description: "Reactive markdown notebook with live formula calculations, inline AI, custom variables, and scratchpads. Local-first.",
-            },
-            {
                 repoName: "newsfeed",
                 title: "Newsfeed",
-                description: "Personal RSS aggregator for quick scanning on mobile. Fast and distraction-free.",
+                blurb: "A phone-first RSS reader with no backend. Nine publisher feeds in a swipe deck, a chronological feed, and a saved list — installable as a PWA, with cross-source trending detection.",
+                stack: ["TypeScript", "PWA"],
+                links: [
+                    { label: "Source", url: githubUrl("newsfeed") },
+                    { label: "Live", url: "https://news.vrbl.win" },
+                ],
+            },
+            {
+                repoName: "meeting-transcriber",
+                title: "Meeting Transcriber",
+                blurb: "A minimal, fully local UI over faster-whisper that transcribes 2–3 minute meeting summaries offline, with no cloud round-trip.",
+                stack: ["faster-whisper", "Whisper", "Python"],
+                links: [{ label: "Source", url: githubUrl("meeting-transcriber") }],
             },
         ],
     },
@@ -55,7 +173,23 @@ const CURATED: {
             {
                 repoName: "Vinyl",
                 title: "Vinyl",
-                description: "Native Swift app showing real-time lyrics for Apple Music and Spotify in the macOS menu bar.",
+                blurb: "A native menu bar app with synchronized, scrolling lyrics for Apple Music and Spotify. Dual-player detection, a popover with seek bar and playback controls, and a local JSON cache that skips API calls on repeat.",
+                stack: ["Swift", "AppKit", "SwiftUI"],
+                links: [{ label: "Source", url: githubUrl("Vinyl") }],
+            },
+            {
+                repoName: "SwiftType",
+                title: "SwiftType",
+                blurb: "System-wide autocorrect for macOS under 5ms, fully offline. A hybrid SymSpell + BK-Tree engine, technical vocabularies, adaptive learning, Cmd+Z undo, and automatic secure-field bypass.",
+                stack: ["Swift 6", "SymSpell", "BK-Tree"],
+                links: [{ label: "Source", url: githubUrl("SwiftType") }],
+            },
+            {
+                repoName: "Dimmer",
+                title: "Dimmer",
+                blurb: "Content-aware adaptive brightness for the Mac menu bar. Analyzes a downsampled local capture and stays honest about API limits — macOS has no public backlight API, so it falls back to a truthful overlay.",
+                stack: ["SwiftUI", "AppKit", "ScreenCaptureKit"],
+                links: [{ label: "Source", url: githubUrl("Dimmer") }],
             },
         ],
     },
@@ -66,17 +200,30 @@ const CURATED: {
             {
                 repoName: "Omelette-The-Openrouter-Extention-for-Raycast",
                 title: "Omelette for Raycast",
-                description: "Raycast extension for OpenRouter — quick access to any AI model from the launcher, no subscription needed.",
+                blurb: "OpenRouter access straight from the Raycast launcher — any model, no vendor lock-in. Instant model switching, quick actions, word-by-word streaming, and local conversation history.",
+                stack: ["TypeScript", "Raycast API"],
+                links: [{ label: "Source", url: githubUrl("Omelette-The-Openrouter-Extention-for-Raycast") }],
             },
             {
                 repoName: "Omelette-vicinae",
                 title: "Omelette for Vicinae",
-                description: "Port of Omelette to Vicinae for Linux and cross-platform OpenRouter access.",
+                blurb: "The same OpenRouter extension, ported to the Vicinae launcher so Linux users get the same keyboard-first AI prompt flow.",
+                stack: ["TypeScript", "Vicinae"],
+                links: [{ label: "Source", url: githubUrl("Omelette-vicinae") }],
             },
             {
                 repoName: "Terminal_helper",
                 title: "Terminal AI Helper",
-                description: "Lightweight Python scripts that add AI assistance to your terminal via OpenRouter or Hugging Face.",
+                blurb: "Two tiny CLI tools that bring LLMs into the shell — `ai` (Hugging Face) and `fa` (OpenRouter) answer natural-language prompts with rich markdown output, reading keys from the environment.",
+                stack: ["Python", "OpenRouter", "Hugging Face"],
+                links: [{ label: "Source", url: githubUrl("Terminal_helper") }],
+            },
+            {
+                repoName: "opencode-phone",
+                title: "opencode-phone",
+                blurb: "Drive your opencode coding agent from an Android phone over Tailscale. An Expo app plus a workstation bridge, an ntfy notifier for approvals, and one-command QR onboarding — traffic stays on your own tailnet.",
+                stack: ["Expo", "React Native", "Tailscale"],
+                links: [{ label: "Source", url: githubUrl("opencode-phone") }],
             },
         ],
     },
@@ -87,7 +234,9 @@ const CURATED: {
             {
                 repoName: "pipewire-audio-controller",
                 title: "PipeWire Monitor Splitter",
-                description: "Routes audio between monitors using PipeWire on Linux. Useful for multi-monitor setups with independent sound.",
+                blurb: "Split stereo audio across dual monitors with PipeWire and WirePlumber: a 4-channel panning layout, a GTK4/Libadwaita controller GUI, and a toggle script between your DAC and speakers.",
+                stack: ["PipeWire", "WirePlumber", "GTK4", "Libadwaita"],
+                links: [{ label: "Source", url: githubUrl("pipewire-audio-controller") }],
             },
         ],
     },
@@ -97,79 +246,199 @@ const CURATED: {
         projects: [
             {
                 repoName: "Peer-Network",
-                title: "Blockchain P2P",
-                description: "Peer-to-peer information network built on a custom blockchain with cryptographic verification.",
+                title: "Blockchain P2P Network",
+                blurb: "A research project exploring a peer-to-peer information-sharing network built on a custom blockchain with cryptographic verification.",
+                stack: ["Blockchain", "Python"],
+                links: [{ label: "Source", url: githubUrl("Peer-Network") }],
             },
         ],
     },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// ─── Small presentational pieces ─────────────────────────────────────────────
 
-function ProjectCard({
-    title,
-    description,
-    url,
+function StackChips({ stack }: { stack?: string[] }) {
+    if (!stack || stack.length === 0) return null;
+    return (
+        <div className="flex flex-wrap gap-1.5">
+            {stack.map(s => (
+                <span
+                    key={s}
+                    className="font-mono text-[11px] text-foreground/50 border border-border px-2 py-0.5"
+                >
+                    {s}
+                </span>
+            ))}
+        </div>
+    );
+}
+
+function LinksRow({ links }: { links?: ProjectLink[] }) {
+    if (!links || links.length === 0) return null;
+    return (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            {links.map(l => (
+                <a
+                    key={l.url}
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-foreground/50 hover:text-foreground transition-colors group/link"
+                >
+                    {l.label}
+                    <ExternalLink size={11} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                </a>
+            ))}
+        </div>
+    );
+}
+
+function LiveStats({
+    language,
     stars,
     forks,
-    language,
+}: {
+    language: string;
+    stars: number;
+    forks: number;
+}) {
+    return (
+        <div className="flex items-center gap-3 text-xs font-mono text-foreground/40">
+            {language && <span>{language}</span>}
+            {stars > 0 && (
+                <span className="flex items-center gap-1">
+                    <Star size={11} className="fill-amber-400 text-amber-400" />
+                    {stars}
+                </span>
+            )}
+            {forks > 0 && (
+                <span className="flex items-center gap-1">
+                    <GitFork size={11} />
+                    {forks}
+                </span>
+            )}
+        </div>
+    );
+}
+
+// ─── Featured card ───────────────────────────────────────────────────────────
+
+function FeaturedCard({
+    project,
+    live,
+    index,
+}: {
+    project: FeaturedProject;
+    live: { stars: number; forks: number; language: string };
+    index: number;
+}) {
+    return (
+        <motion.article
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.04, duration: 0.2 }}
+            className="border border-border hover:border-foreground/25 p-6 md:p-7 transition-colors flex flex-col gap-4"
+        >
+            {/* Accent line */}
+            <div className="w-8 h-0.5 shrink-0" style={{ backgroundColor: project.color }} />
+
+            <div className="flex items-start justify-between gap-3">
+                <h3 className="font-bold text-foreground text-lg leading-snug">{project.title}</h3>
+                <a
+                    href={githubUrl(project.repoName)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} on GitHub`}
+                    className="text-foreground/30 hover:text-foreground/60 transition-colors shrink-0 mt-0.5"
+                >
+                    <ExternalLink size={15} />
+                </a>
+            </div>
+
+            {project.role && (
+                <p className="font-mono text-xs text-primary/80 leading-relaxed border-l-2 border-primary pl-3">
+                    {project.role}
+                </p>
+            )}
+
+            <p className="text-sm text-foreground/70 leading-relaxed">{project.blurb}</p>
+            <p className="text-sm text-foreground/50 leading-relaxed">{project.description}</p>
+
+            <ul className="space-y-2">
+                {project.capabilities.map(c => (
+                    <li key={c} className="flex gap-2.5 text-sm text-foreground/60 leading-relaxed">
+                        <span
+                            className="mt-[0.6em] w-1.5 h-1.5 shrink-0"
+                            style={{ backgroundColor: project.color }}
+                        />
+                        <span>{c}</span>
+                    </li>
+                ))}
+            </ul>
+
+            {project.status && (
+                <p className="font-mono text-xs text-foreground/45 leading-relaxed">
+                    {project.status}
+                </p>
+            )}
+
+            <div className="mt-auto pt-1 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4">
+                <StackChips stack={project.stack} />
+                <LiveStats language={live.language} stars={live.stars} forks={live.forks} />
+            </div>
+
+            <LinksRow links={project.links} />
+        </motion.article>
+    );
+}
+
+// ─── Standard curated card ───────────────────────────────────────────────────
+
+function ProjectCard({
+    project,
+    live,
     color,
     index,
 }: {
-    title: string;
-    description: string;
-    url: string;
-    stars: number;
-    forks: number;
-    language: string;
+    project: CuratedProject;
+    live: { stars: number; forks: number; language: string };
     color: string;
     index: number;
 }) {
     return (
-        <motion.a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
+        <motion.article
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.02, duration: 0.2 }}
             className="group flex flex-col border border-border hover:border-foreground/25 p-5 transition-colors card-lift"
         >
-            {/* Accent line */}
             <div className="w-6 h-0.5 mb-4 shrink-0" style={{ backgroundColor: color }} />
 
             <div className="flex items-start justify-between gap-3 mb-2">
-                <h3 className="font-semibold text-foreground text-base leading-snug">{title}</h3>
-                <ExternalLink
-                    size={14}
+                <h3 className="font-semibold text-foreground text-base leading-snug">{project.title}</h3>
+                <a
+                    href={githubUrl(project.repoName)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} on GitHub`}
                     className="text-foreground/20 group-hover:text-foreground/55 transition-colors shrink-0 mt-0.5"
-                />
+                >
+                    <ExternalLink size={14} />
+                </a>
             </div>
 
-            <p className="text-sm text-foreground/50 leading-relaxed flex-1 mb-4 line-clamp-3">
-                {description}
+            <p className="text-sm text-foreground/50 leading-relaxed flex-1 mb-4">
+                {project.blurb}
             </p>
 
-            <div className="flex items-center justify-between mt-auto">
-                {language && (
-                    <span className="font-mono text-xs text-foreground/35">{language}</span>
-                )}
-                <div className="flex items-center gap-3 ml-auto text-xs font-mono text-foreground/35">
-                    {stars > 0 && (
-                        <span className="flex items-center gap-1">
-                            <Star size={11} className="fill-amber-400 text-amber-400" />
-                            {stars}
-                        </span>
-                    )}
-                    {forks > 0 && (
-                        <span className="flex items-center gap-1">
-                            <GitFork size={11} />
-                            {forks}
-                        </span>
-                    )}
+            <div className="flex flex-col gap-3">
+                <StackChips stack={project.stack} />
+                <div className="flex items-center justify-between gap-3">
+                    <LiveStats language={live.language} stars={live.stars} forks={live.forks} />
+                    <LinksRow links={project.links} />
                 </div>
             </div>
-        </motion.a>
+        </motion.article>
     );
 }
 
@@ -212,9 +481,18 @@ function SmallRepoRow({ repo, index }: { repo: Repo; index: number }) {
     );
 }
 
-const CURATED_NAMES = new Set(
-    CURATED.flatMap(g => g.projects.map(p => p.repoName.toLowerCase()))
-);
+const CURATED_NAMES = new Set([
+    ...FEATURED.map(p => p.repoName.toLowerCase()),
+    ...CURATED.flatMap(g => g.projects.map(p => p.repoName.toLowerCase())),
+]);
+
+// Repos already surfaced via a featured card's links — kept out of the
+// auto-generated "Everything else" list to avoid duplication.
+const SUPPRESSED = new Set([
+    "agent-skills",
+    "dot-kit-public",
+    "gait-biometrics-final",
+]);
 
 interface GitHubRepoItem {
     id: number;
@@ -252,7 +530,6 @@ export default function Projects() {
                 if (!res.ok) throw new Error("GitHub API error");
                 const data = (await res.json()) as GitHubRepoItem[];
 
-                // Build live lookup
                 const lookup: Record<string, { stars: number; forks: number; language: string }> = {};
                 data.forEach(r => {
                     lookup[r.name.toLowerCase()] = {
@@ -263,9 +540,8 @@ export default function Projects() {
                 });
                 setLiveRepos(lookup);
 
-                // Everything not in curated sections
                 const rest: Repo[] = data
-                    .filter(r => !r.fork && !CURATED_NAMES.has(r.name.toLowerCase()))
+                    .filter(r => !r.fork && !CURATED_NAMES.has(r.name.toLowerCase()) && !SUPPRESSED.has(r.name.toLowerCase()))
                     .map(r => ({
                         id: r.id,
                         name: r.name.replace(/-/g, " ").replace(/_/g, " "),
@@ -287,7 +563,6 @@ export default function Projects() {
         fetchRepos();
     }, []);
 
-    // Merge live stats into a curated project card
     const getLive = (repoName: string) =>
         liveRepos[repoName.toLowerCase()] ?? { stars: 0, forks: 0, language: "" };
 
@@ -308,7 +583,7 @@ export default function Projects() {
                     className="mb-16"
                 >
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">Projects</h1>
-                    <p className="text-foreground/50 text-base">
+                    <p className="text-foreground/50 text-base max-w-2xl">
                         Open source tools and experiments —{" "}
                         <a href="https://github.com/VariableThe" target="_blank" rel="noreferrer"
                             className="underline hover:text-foreground transition-colors">
@@ -320,14 +595,28 @@ export default function Projects() {
                 {/* GitHub Activity Grid */}
                 <GithubActivityGrid username="VariableThe" />
 
+                {/* ─── Featured ─── */}
+                <motion.section
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="mb-16"
+                >
+                    <div className="flex items-center gap-3 mb-5">
+                        <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
+                            Featured
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        {FEATURED.map((p, i) => (
+                            <FeaturedCard key={p.repoName} project={p} live={getLive(p.repoName)} index={i} />
+                        ))}
+                    </div>
+                </motion.section>
+
                 {/* ─── Curated categories ─── */}
                 <div className="space-y-16">
                     {CURATED.map((group, gi) => {
-                        const cards = group.projects.map((p, pi) => {
-                            const live = getLive(p.repoName);
-                            return { ...p, ...live, index: gi * 10 + pi };
-                        });
-
                         return (
                             <motion.section
                                 key={group.category}
@@ -335,7 +624,6 @@ export default function Projects() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: gi * 0.03, duration: 0.2 }}
                             >
-                                {/* Category heading */}
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: group.color }} />
                                     <h2 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
@@ -343,18 +631,14 @@ export default function Projects() {
                                     </h2>
                                 </div>
 
-                                <div className={`grid gap-4 ${cards.length === 1 ? "grid-cols-1 max-w-sm" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
-                                    {cards.map(card => (
+                                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                                    {group.projects.map((p, pi) => (
                                         <ProjectCard
-                                            key={card.repoName}
-                                            title={card.title}
-                                            description={card.description}
-                                            url={`https://github.com/VariableThe/${card.repoName}`}
-                                            stars={card.stars}
-                                            forks={card.forks}
-                                            language={card.language}
+                                            key={p.repoName}
+                                            project={p}
+                                            live={getLive(p.repoName)}
                                             color={group.color}
-                                            index={card.index}
+                                            index={gi * 10 + pi}
                                         />
                                     ))}
                                 </div>
