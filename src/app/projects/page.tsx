@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Star, GitFork, Loader2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Star, GitFork, Loader2, Plus, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GithubActivityGrid } from "@/components/GithubActivityGrid";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -311,7 +312,7 @@ function LiveStats({
     );
 }
 
-// ─── Featured card ───────────────────────────────────────────────────────────
+// ─── Featured card (compact trigger + detail overlay) ───────────────────────
 
 function FeaturedCard({
     project,
@@ -323,62 +324,84 @@ function FeaturedCard({
     index: number;
 }) {
     return (
-        <motion.article
+        <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.04, duration: 0.2 }}
-            className="border border-border hover:border-foreground/25 p-6 md:p-7 transition-colors flex flex-col gap-4"
         >
-            {/* Accent line */}
-            <div className="w-8 h-0.5 shrink-0" style={{ backgroundColor: project.color }} />
-
-            <div className="flex items-start justify-between gap-3">
-                <h3 className="font-bold text-foreground text-lg leading-snug">{project.title}</h3>
-                <a
-                    href={githubUrl(project.repoName)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${project.title} on GitHub`}
-                    className="text-foreground/35 hover:text-foreground/65 transition-colors shrink-0 mt-0.5"
+            <Dialog>
+                <DialogTrigger
+                    className="group w-full text-left bg-transparent flex flex-col border border-border hover:border-foreground/30 p-5 transition-colors card-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 cursor-pointer"
                 >
-                    <ExternalLink size={15} />
-                </a>
-            </div>
+                    {/* Accent line */}
+                    <div className="w-6 h-0.5 mb-4 shrink-0" style={{ backgroundColor: project.color }} />
 
-            {project.role && (
-                <p className="font-mono text-xs text-primary/85 leading-relaxed border-l-2 border-primary pl-3">
-                    {project.role}
-                </p>
-            )}
-
-            <p className="text-sm text-foreground/70 leading-relaxed">{project.blurb}</p>
-            <p className="text-sm text-foreground/70 leading-relaxed">{project.description}</p>
-
-            <ul className="space-y-2">
-                {project.capabilities.map(c => (
-                    <li key={c} className="flex gap-2.5 text-sm text-foreground/70 leading-relaxed">
-                        <span
-                            className="mt-[0.6em] w-1.5 h-1.5 shrink-0"
-                            style={{ backgroundColor: project.color }}
+                    <div className="flex items-start justify-between gap-3">
+                        <h3 className="font-bold text-foreground text-base leading-snug">{project.title}</h3>
+                        <Plus
+                            size={14}
+                            className="text-foreground/30 group-hover:text-foreground/60 transition-colors shrink-0 mt-0.5"
+                            aria-hidden="true"
                         />
-                        <span>{c}</span>
-                    </li>
-                ))}
-            </ul>
+                    </div>
 
-            {project.status && (
-                <p className="font-mono text-xs text-foreground/60 leading-relaxed">
-                    {project.status}
-                </p>
-            )}
+                    <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2 mt-1">{project.blurb}</p>
 
-            <div className="mt-auto pt-1 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4">
-                <StackChips stack={project.stack} />
-                <LiveStats language={live.language} stars={live.stars} forks={live.forks} />
-            </div>
+                    <div className="mt-4">
+                        <StackChips stack={project.stack} />
+                    </div>
 
-            <LinksRow links={project.links} />
-        </motion.article>
+                    <div className="mt-4 pt-3 border-t border-border flex items-center justify-between gap-3">
+                        <span className="font-mono text-xs text-foreground/45 group-hover:text-foreground/70 inline-flex items-center gap-1 transition-colors">
+                            View details
+                            <ArrowUpRight size={11} aria-hidden="true" />
+                        </span>
+                        <LiveStats language={live.language} stars={live.stars} forks={live.forks} />
+                    </div>
+                </DialogTrigger>
+
+                <DialogContent className="sm:max-w-xl rounded-none border border-border ring-0 bg-popover p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto">
+                    <DialogHeader className="gap-3 pr-8">
+                        <div className="w-8 h-0.5 shrink-0" style={{ backgroundColor: project.color }} />
+                        <DialogTitle className="text-lg font-bold leading-snug">{project.title}</DialogTitle>
+                        {project.role && (
+                            <p className="font-mono text-xs text-primary/85 leading-relaxed border-l-2 border-primary pl-3">
+                                {project.role}
+                            </p>
+                        )}
+                    </DialogHeader>
+
+                    <DialogDescription className="text-sm text-foreground/70 leading-relaxed">
+                        {project.blurb}
+                    </DialogDescription>
+
+                    <p className="text-sm text-foreground/70 leading-relaxed">{project.description}</p>
+
+                    <ul className="space-y-2">
+                        {project.capabilities.map(c => (
+                            <li key={c} className="flex gap-2.5 text-sm text-foreground/70 leading-relaxed">
+                                <span
+                                    className="mt-[0.6em] w-1.5 h-1.5 shrink-0"
+                                    style={{ backgroundColor: project.color }}
+                                />
+                                <span>{c}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {project.status && (
+                        <p className="font-mono text-xs text-foreground/60 leading-relaxed">{project.status}</p>
+                    )}
+
+                    <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4">
+                        <StackChips stack={project.stack} />
+                        <LiveStats language={live.language} stars={live.stars} forks={live.forks} />
+                    </div>
+
+                    <LinksRow links={project.links} />
+                </DialogContent>
+            </Dialog>
+        </motion.div>
     );
 }
 
